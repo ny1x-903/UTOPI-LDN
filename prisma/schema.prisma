@@ -1,0 +1,208 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid())
+  email        String      @unique
+  passwordHash String?
+  name         String?
+  role         String      @default("CUSTOMER") // "CUSTOMER" | "ADMIN"
+  phone        String?
+  addresses    Address[]
+  orders       Order[]
+  wishlist     Wishlist?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model Address {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String   @default("Home")
+  fullName    String
+  phone       String
+  city        String
+  district    String
+  fullAddress String
+  postalCode  String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Product {
+  id             String           @id @default(uuid())
+  slug           String           @unique
+  name           String
+  subtitle       String?
+  description    String
+  price          Float
+  compareAtPrice Float?
+  category       String           // "HOODIES", "T-SHIRTS", "SWEATPANTS", "CARGOS", "JACKETS", "TRACKSUITS", "SHORTS", "ACCESSORIES", "LIMITED"
+  collectionId   String?
+  collection     Collection?      @relation(fields: [collectionId], references: [id], onDelete: SetNull)
+  fit            String           @default("Oversized") // "Oversized", "Boxy", "Relaxed", "Standard"
+  material       String           @default("480 GSM Heavyweight Cotton")
+  color          String           @default("Matte Black")
+  colorHex       String           @default("#0a0a0a")
+  isLimited      Boolean          @default(false)
+  totalPieces    Int?             // For limited releases, e.g. 100
+  piecesSold     Int              @default(0) // e.g. 87 sold
+  isFeatured     Boolean          @default(false)
+  isNewDrop      Boolean          @default(false)
+  status         String           @default("ACTIVE") // "ACTIVE", "ARCHIVED", "DRAFT"
+  tags           String           @default("") // comma separated
+  metaTitle      String?
+  metaDesc       String?
+  images         ProductImage[]
+  variants       ProductVariant[]
+  orderItems     OrderItem[]
+  wishlistItems  WishlistItem[]
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model ProductVariant {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  size      String   // "XS", "S", "M", "L", "XL", "XXL", "3XL"
+  stock     Int      @default(10)
+  sku       String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProductImage {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  type      String   @default("FRONT") // "FRONT", "BACK", "DETAIL", "MODEL", "CAMPAIGN"
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Collection {
+  id          String    @id @default(uuid())
+  slug        String    @unique
+  title       String    // e.g. "DROP 01 — AFTER DARK"
+  dropNumber  String?   // "01", "02", "34"
+  manifesto   String
+  heroImage   String
+  releaseDate DateTime?
+  isArchived  Boolean   @default(false)
+  isFeatured  Boolean   @default(true)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Order {
+  id              String      @id @default(uuid())
+  orderNumber     String      @unique // e.g. "UTP-8921"
+  trackingNumber  String      @unique // e.g. "UTP-TR-491029"
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  customerName    String
+  customerEmail   String
+  customerPhone   String
+  shippingAddress String
+  city            String
+  district        String
+  postalCode      String?
+  country         String      @default("Turkey")
+  subtotal        Float
+  shippingFee     Float       @default(0)
+  discountTotal   Float       @default(0)
+  totalAmount     Float
+  status          String      @default("PROCESSING") // "PENDING", "PROCESSING", "IN_PRODUCTION", "DISPATCHED", "DELIVERED", "CANCELLED"
+  paymentStatus   String      @default("PAID") // "PENDING", "PAID", "FAILED"
+  paymentMethod   String      @default("CREDIT_CARD") // "CREDIT_CARD", "IYZICO", "PAYTR", "STRIPE"
+  orderNotes      String?
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model OrderItem {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String?
+  product     Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productName String
+  productSlug String?
+  size        String
+  quantity    Int
+  unitPrice   Float
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+}
+
+model Wishlist {
+  id        String         @id @default(uuid())
+  userId    String         @unique
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     WishlistItem[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model WishlistItem {
+  id         String   @id @default(uuid())
+  wishlistId String
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+}
+
+model Discount {
+  id          String    @id @default(uuid())
+  code        String    @unique // e.g. "UTOPIA10"
+  percentage  Float?    // e.g. 10.0
+  fixedAmount Float?    // e.g. 150.0
+  minSpend    Float?    @default(0)
+  maxUses     Int?      @default(100)
+  usedCount   Int       @default(0)
+  isActive    Boolean   @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+}
+
+model AIGenerationLog {
+  id             String   @id @default(uuid())
+  productName    String
+  category       String
+  attributesJson String
+  promptsJson    String
+  socialKitJson  String?
+  status         String   @default("GENERATED")
+  createdAt      DateTime @default(now())
+}
+
+model SiteSettings {
+  id                     String   @id @default("default")
+  storeName              String   @default("UTOPIA LDN")
+  slogan                 String   @default("BUILT FOR THE SHADOWS.")
+  currency               String   @default("TRY")
+  currencySymbol         String   @default("₺")
+  freeShippingThreshold  Float    @default(2000)
+  announcementText       String   @default("DROP 01 IS NOW LIVE // WORLDWIDE DISPATCH AVAILABLE")
+  kvkkPolicy             String?
+  privacyPolicy          String?
+  termsConditions        String?
+  distanceSalesAgreement String?
+  returnPolicy           String?
+  shippingPolicy         String?
+  updatedAt              DateTime @updatedAt
+}
