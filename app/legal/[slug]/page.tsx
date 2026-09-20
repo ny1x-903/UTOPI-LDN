@@ -4,7 +4,6 @@ import { prisma } from "@/lib/prisma";
 import { FileText, ArrowLeft, ShieldCheck } from "lucide-react";
 import { Metadata } from "next";
 
-export const revalidate = 0;
 
 interface LegalData {
   title: string;

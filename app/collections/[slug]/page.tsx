@@ -4,7 +4,6 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Sparkles, Calendar, Layers } from "lucide-react";
 
-export const revalidate = 0;
 
 export default async function CollectionDetailPage({
   params,

@@ -8,7 +8,6 @@ export const metadata: Metadata = {
     "Explore the complete UTOPIA LDN streetwear archive. Heavyweight hoodies, tactical cargos, boxy tees, and technical outerwear.",
 };
 
-export const revalidate = 0;
 
 export default async function ShopPage({
   searchParams,

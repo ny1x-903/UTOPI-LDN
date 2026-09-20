@@ -10,7 +10,6 @@ import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
 import { SocialFeed } from "@/components/home/SocialFeed";
 import { LookbookEditorial } from "@/components/home/LookbookEditorial";
 
-export const revalidate = 0; // Dynamic server rendering
 
 export default async function HomePage() {
   // Fetch featured products from database

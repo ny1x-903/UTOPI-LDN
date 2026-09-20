@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { AdminAIAssistant } from "@/components/admin/AdminAIAssistant";
 
-export const revalidate = 0;
 
 export default async function AdminDashboardPage() {
   const [orders, products, collections, lowStockVariants] = await Promise.all([

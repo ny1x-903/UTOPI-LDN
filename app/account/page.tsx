@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "Siparişleriniz, teslimat adresleriniz ve hesap detaylarınız.",
 };
 
-export const revalidate = 0;
 
 export default async function AccountPage() {
   // Fetch real latest orders from database

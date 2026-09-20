@@ -3,7 +3,6 @@ import { prisma } from "@/lib/prisma";
 import { ProductDetailView } from "@/components/product/ProductDetailView";
 import { Metadata } from "next";
 
-export const revalidate = 0;
 
 export async function generateMetadata({
   params,

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { CheckCircle2, Truck, Package, ArrowRight, ShieldCheck } from "lucide-react";
 
-export const revalidate = 0;
 
 export default async function OrderConfirmationPage({
   params,

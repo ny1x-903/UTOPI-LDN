@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   description: "Kaydettiğiniz özel UTOPIA LDN sokak giyim parçaları ve sınırlı drop parçaları.",
 };
 
-export const revalidate = 0;
 
 export default async function WishlistPage() {
   const rawProducts = await prisma.product.findMany({
