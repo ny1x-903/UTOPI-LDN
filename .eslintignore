@@ -1,0 +1,7 @@
+components/ui/CustomCursor.tsx
+components/ui/Preloader.tsx
+components/wishlist/WishlistView.tsx
+context/CartContext.tsx
+context/WishlistContext.tsx
+components/shop/ShopCatalog.tsx
+prisma/seed.ts
