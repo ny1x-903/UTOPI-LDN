@@ -104,7 +104,7 @@ export function ProductCard({ product }: ProductCardProps) {
       }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{ perspective: 1000, transformStyle: "preserve-3d" }}
-      className="group relative flex flex-col bg-background border border-border hover:border-foreground/20 transition-colors duration-300 z-10 hover:z-20 shadow-none hover:shadow-2xl hover:shadow-[#e50914]/5"
+      className="group relative flex flex-col bg-[#141414] border border-border hover:border-[#FF5500]/50 transition-all duration-500 z-10 hover:z-20 shadow-none hover:shadow-[0_0_30px_rgba(255,85,0,0.15)]"
     >
       {/* Image Container with Badges */}
       <Link
@@ -128,7 +128,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="absolute top-3 left-3 right-3 flex justify-between items-start z-10" style={{ transform: "translateZ(30px)" }}>
           <div className="flex flex-col gap-1.5">
             {product.isLimited && (
-              <span className="bg-[#e50914] text-white text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 shadow-lg shadow-black/50 backdrop-blur-md">
+              <span className="bg-[#FF5500] text-white text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 shadow-lg shadow-black/50 backdrop-blur-md">
                 LIMITED DROP
               </span>
             )}
@@ -142,10 +142,10 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             onClick={handleWishlistClick}
             className={`p-2 bg-background/50 backdrop-blur-md border border-border hover:border-foreground transition-all ${
-              isFavorited ? "text-[#e50914]" : "text-foreground"
+              isFavorited ? "text-[#FF5500]" : "text-foreground"
             }`}
           >
-            <Heart className={`w-4 h-4 ${isFavorited ? "fill-current" : ""}`} />
+            <Heart className={`w-4 h-4 ${isFavorited ? "fill-current text-[#FF5500]" : ""}`} />
           </button>
         </div>
 
@@ -193,7 +193,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <Link
               href={`/product/${product.slug}`}
-              className="text-sm font-bold font-sans uppercase tracking-tight text-foreground group-hover:text-[#e50914] transition-colors line-clamp-1"
+              className="text-sm font-bold font-sans uppercase tracking-tight text-foreground group-hover:text-[#FF5500] transition-colors line-clamp-1"
             >
               {product.name}
             </Link>
@@ -214,14 +214,14 @@ export function ProductCard({ product }: ProductCardProps) {
         {product.isLimited && percentSold !== null && (
           <div className="mt-auto pt-4 border-t border-border">
             <div className="flex justify-between text-[9px] font-mono uppercase tracking-widest mb-1.5">
-              <span className="text-[#e50914] font-bold">SOLD OUT: {percentSold}%</span>
+              <span className="text-[#FF5500] font-bold">SOLD OUT: {percentSold}%</span>
               <span className="text-neutral-500">
                 {product.piecesSold} / {product.totalPieces}
               </span>
             </div>
             <div className="w-full h-1 bg-neutral-900">
               <div
-                className="h-full bg-[#e50914]"
+                className="h-full bg-[#FF5500]"
                 style={{ width: `${percentSold}%` }}
               />
             </div>

@@ -9,6 +9,9 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { CCTVSurveillanceHUD } from "@/components/ui/CCTVSurveillanceHUD";
+import { DropTerminalModal } from "@/components/ui/DropTerminalModal";
+import { DrillRadio } from "@/components/ui/DrillRadio";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -70,9 +73,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
-      <body className="bg-background text-foreground min-h-screen flex flex-col font-sans antialiased selection:bg-[#e50914] selection:text-white">
-        {/* Film grain removed for performance optimization */}
+      <body className="bg-background text-foreground min-h-screen flex flex-col font-sans antialiased selection:bg-[#FF5500] selection:text-white">
+        {/* Luxury Custom Pointer on Desktop */}
+        <CustomCursor />
+
+        {/* Smooth Scroll Utility */}
         <SmoothScroll />
+
+        {/* Concept Feature 1: CCTV Surveillance & Police Strobe HUD */}
+        <CCTVSurveillanceHUD />
+
+        {/* Concept Feature 2: Secret Underground Drop Terminal */}
+        <DropTerminalModal />
+
+        {/* Concept Feature 3: UTOPIA 104.2 FM Ambient Drill Radio */}
+        <DrillRadio />
 
         <CartProvider>
           <WishlistProvider>

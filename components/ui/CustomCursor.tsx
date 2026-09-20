@@ -69,8 +69,9 @@ export function CustomCursor() {
           y: position.y - (cursorText ? 36 : isPointer ? 24 : 16),
           width: cursorText ? 72 : isPointer ? 48 : 32,
           height: cursorText ? 72 : isPointer ? 48 : 32,
-          backgroundColor: cursorText ? "rgba(229, 9, 20, 0.85)" : isPointer ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.05)",
-          borderColor: cursorText ? "rgba(229, 9, 20, 1)" : "rgba(255, 255, 255, 0.5)",
+          backgroundColor: cursorText ? "rgba(255, 85, 0, 0.9)" : isPointer ? "rgba(255, 85, 0, 0.15)" : "rgba(255, 255, 255, 0.05)",
+          borderColor: cursorText ? "rgba(255, 85, 0, 1)" : isPointer ? "rgba(255, 85, 0, 0.8)" : "rgba(255, 255, 255, 0.4)",
+          boxShadow: isPointer ? "0 0 15px rgba(255, 85, 0, 0.4)" : "none",
         }}
         transition={{
           type: "spring",
@@ -80,7 +81,7 @@ export function CustomCursor() {
         }}
       >
         {cursorText && (
-          <span className="text-[10px] font-bold tracking-widest text-white uppercase select-none">
+          <span className="text-[10px] font-mono font-bold tracking-widest text-white uppercase select-none">
             {cursorText}
           </span>
         )}
