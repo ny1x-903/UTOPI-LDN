@@ -5,6 +5,9 @@ import { LimitedDropTracker } from "@/components/home/LimitedDropTracker";
 import { CollectionSlider } from "@/components/home/CollectionSlider";
 import { ProductCloseUpViewer } from "@/components/home/ProductCloseUpViewer";
 import { FeaturedGrid } from "@/components/home/FeaturedGrid";
+import { VideoShowcase } from "@/components/home/VideoShowcase";
+import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
+import { SocialFeed } from "@/components/home/SocialFeed";
 import { LookbookEditorial } from "@/components/home/LookbookEditorial";
 
 export const revalidate = 0; // Dynamic server rendering
@@ -48,14 +51,17 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col w-full overflow-hidden bg-[#050505]">
-      {/* Cinematic Hero */}
+      {/* Cinematic Hero with Glitch Effects */}
       <HeroSection />
 
       {/* Section 01: Brand Philosophy & Manifesto */}
       <BrandManifesto />
 
-      {/* Section 02 & 03: Active Limited Drop Spotlight with Real Timer & 87/100 Sold Gauge */}
+      {/* Section 02 & 03: Active Limited Drop Spotlight with Real Timer & Sold Gauge */}
       <LimitedDropTracker />
+
+      {/* Cinematic Video Showcase with Parallax */}
+      <VideoShowcase />
 
       {/* Section 04: Drop Showcase Slider */}
       <CollectionSlider />
@@ -66,8 +72,14 @@ export default async function HomePage() {
       {/* Section 07: Curated Featured Streetwear Grid */}
       <FeaturedGrid products={products} />
 
+      {/* Müşteri Yorumları & Sosyal Kanıt */}
+      <TestimonialCarousel />
+
       {/* Campaign Lookbook */}
       <LookbookEditorial />
+
+      {/* Instagram Sosyal Feed */}
+      <SocialFeed />
     </div>
   );
 }

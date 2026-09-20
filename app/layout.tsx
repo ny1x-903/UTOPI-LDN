@@ -8,6 +8,8 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Preloader } from "@/components/ui/Preloader";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { AudioProvider } from "@/components/providers/AudioProvider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -75,23 +77,24 @@ export default function RootLayout({
 
         <CartProvider>
           <WishlistProvider>
-            {/* Interactive Desktop Fluid Cursor */}
-            <CustomCursor />
+            <AudioProvider>
+              {/* Initial Entrance Cinematic Preloader */}
+              <Preloader />
 
-            {/* Initial Entrance Cinematic Preloader */}
-            <Preloader />
+              {/* Top Announcement Ticker Bar */}
+              <AnnouncementBar />
 
-            {/* Global Navbar */}
-            <Navbar />
+              {/* Global Navbar with Mega Menu */}
+              <Navbar />
 
-            {/* Slide-out Cart Drawer */}
-            <CartDrawer />
+              {/* Slide-out Cart Drawer */}
+              <CartDrawer />
 
-            {/* Main Application Content */}
-            <main className="flex-1 w-full">{children}</main>
+              <main className="flex-1 w-full">{children}</main>
 
-            {/* Global Brutalist Footer */}
-            <Footer />
+              {/* Global Brutalist Footer */}
+              <Footer />
+            </AudioProvider>
           </WishlistProvider>
         </CartProvider>
       </body>
