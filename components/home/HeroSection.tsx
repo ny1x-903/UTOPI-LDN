@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Sparkles, Zap } from "lucide-react";
@@ -72,19 +71,21 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative w-full h-screen min-h-[600px] max-h-[1000px] flex items-center justify-center overflow-hidden bg-[#050505] select-none"
     >
-      {/* Background Image with parallax */}
+      {/* Background Video with parallax */}
       <motion.div
         className="absolute inset-0 z-0"
         style={{ scale: imageScale }}
       >
-        <Image
-          src="/images/hero_campaign.jpg"
-          alt="UTOPIA LDN Campaign"
-          fill
-          priority
-          className="object-cover object-center opacity-80"
-          sizes="100vw"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/hero_campaign.jpg"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         {/* Cinematic Vignette & Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
