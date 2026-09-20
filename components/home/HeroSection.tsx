@@ -96,25 +96,24 @@ export function HeroSection() {
         className="absolute inset-0 z-0 overflow-hidden"
         style={{ scale: imageScale }}
       >
-        <video
-          ref={(el) => { 
-            if (el) { 
-              el.defaultMuted = true;
-              el.muted = true;
-              el.play().catch(() => {});
-            } 
+        <div
+          className="absolute inset-0 w-full h-full"
+          dangerouslySetInnerHTML={{
+            __html: `
+              <video
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+                poster="/images/hero_campaign.jpg"
+                class="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
+              >
+                <source src="/videos/hero.mp4" type="video/mp4" />
+              </video>
+            `
           }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-          preload="auto"
-          poster="/images/hero_campaign.jpg"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        />
         {/* Dark Vignette to make text readable inside the video */}
         <div className="absolute inset-0 bg-black/40 pointer-events-none" />
         <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />
