@@ -2,17 +2,18 @@
 
 @layer base {
   :root {
-    --background: #F9F9F8; /* Premium Alabaster / Off-white */
+    --background: #FAFAFA; /* Clean, spacious off-white */
     --foreground: #0A0A0A; /* Rich Black */
     --card: #FFFFFF;
     --card-foreground: #0A0A0A;
     --border: #E5E5E5;
     --border-hover: #D4D4D4;
     --accent-red: #e50914;
-    --accent-crimson: #991b1b;
-    --muted: #E5E5E5;
+    --accent-cyan: #00f0ff;
+    --accent-purple: #8b5cf6;
+    --muted: #F5F5F5;
     --muted-foreground: #737373;
-    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(0, 0, 0, 0.05);
   }
 
@@ -271,7 +272,19 @@
 }
 
 /* ============================
-   GRADIENT BORDER UTILITY
+   CYAN & PURPLE ACCENTS
+   ============================ */
+@keyframes pulse-cyan {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.6); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(0, 240, 255, 0); }
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 2s ease-in-out infinite;
+}
+
+/* ============================
+   GRADIENT BORDER & BACKGROUND UTILITIES
    ============================ */
 .gradient-border {
   position: relative;
@@ -281,13 +294,21 @@
   content: "";
   position: absolute;
   inset: 0;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(229, 9, 20, 0.4), transparent 60%);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-red));
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
   pointer-events: none;
   border-radius: inherit;
+}
+
+.vibrant-mesh-bg {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(229, 9, 20, 0.05) 0px, transparent 50%);
+  background-color: var(--background);
 }
 
 /* ============================
@@ -360,7 +381,7 @@
    RADIAL VIGNETTE
    ============================ */
 .bg-radial-vignette {
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(249, 249, 248, 0.8) 100%);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 /* ============================
