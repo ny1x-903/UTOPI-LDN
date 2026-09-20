@@ -59,6 +59,15 @@ export function HeroSection() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 0.6], [0, 80]);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Attempt to force play when the component mounts or when navigating back
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.log("Autoplay blocked", e));
+    }
+  }, []);
+
   const scrollToNext = () => {
     const nextSection = document.getElementById("section-manifesto");
     if (nextSection) {
@@ -71,48 +80,24 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden select-none"
     >
-      {/* Floating Accent Orb (Hidden on mobile to prevent lag) */}
-      <motion.div
-        className="hidden md:block absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
-        style={{ background: "radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%)" }}
-        animate={{
-          x: [0, 40, -30, 0],
-          y: [0, -30, 40, 0],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="hidden md:block absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
-        style={{ background: "radial-gradient(circle, rgba(255,85,0,0.10) 0%, transparent 70%)" }}
-        animate={{
-          x: [0, -40, 30, 0],
-          y: [0, 30, -40, 0],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Heavy animated background orbs removed to fix lag on all devices */}
 
       {/* Fullscreen Cinematic Video Container (Scaled to hide watermark) */}
       <motion.div
         className="absolute inset-0 z-0 overflow-hidden"
         style={{ scale: imageScale }}
       >
-        <div
-          className="absolute inset-0 w-full h-full"
-          dangerouslySetInnerHTML={{
-            __html: `
-              <video
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="auto"
-                class="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
-              >
-                <source src="/videos/hero.mp4" type="video/mp4" />
-              </video>
-            `
-          }}
-        />
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         {/* Dark Vignette to make text readable inside the video */}
         <div className="absolute inset-0 bg-black/40 pointer-events-none" />
         <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />

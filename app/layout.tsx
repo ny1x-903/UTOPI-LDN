@@ -71,8 +71,7 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="bg-background text-foreground min-h-screen flex flex-col font-sans antialiased selection:bg-[#e50914] selection:text-white">
-        {/* Subtle Luxury Film Grain Texture Layer */}
-        <div className="film-grain" aria-hidden="true" />
+        {/* Film grain removed for performance optimization */}
         <SmoothScroll />
 
         <CartProvider>
