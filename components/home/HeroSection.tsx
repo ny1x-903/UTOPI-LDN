@@ -71,9 +71,9 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden vibrant-mesh-bg select-none"
     >
-      {/* Floating Accent Orb */}
+      {/* Floating Accent Orb (Hidden on mobile to prevent lag) */}
       <motion.div
-        className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
+        className="hidden md:block absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
         style={{ background: "radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 70%)" }}
         animate={{
           x: [0, 40, -30, 0],
@@ -82,7 +82,7 @@ export function HeroSection() {
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
+        className="hidden md:block absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
         style={{ background: "radial-gradient(circle, rgba(255,85,0,0.10) 0%, transparent 70%)" }}
         animate={{
           x: [0, -40, 30, 0],
@@ -102,7 +102,7 @@ export function HeroSection() {
           muted
           playsInline
           poster="/images/hero_campaign.jpg"
-          className="absolute inset-0 w-full h-full object-cover object-[center_top] scale-[1.30]"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
