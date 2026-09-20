@@ -50,7 +50,7 @@ export default async function HomePage() {
   }));
 
   return (
-    <div className="flex flex-col w-full overflow-hidden bg-[#050505]">
+    <div className="flex flex-col w-full overflow-hidden bg-[#1c1c1c]">
       {/* Cinematic Hero with Glitch Effects */}
       <HeroSection />
 

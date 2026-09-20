@@ -6,7 +6,7 @@ import { ShieldAlert, Compass, Layers } from "lucide-react";
 
 export function BrandManifesto() {
   return (
-    <section id="section-manifesto" className="py-24 md:py-36 bg-[#050505] border-t border-neutral-900 text-white relative overflow-hidden">
+    <section id="section-manifesto" className="py-24 md:py-36 bg-[#1c1c1c] border-t border-neutral-900 text-white relative overflow-hidden">
       {/* Background Subtle Coordinate Watermark */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[140px] md:text-[220px] font-black font-sans text-neutral-950 select-none pointer-events-none tracking-tighter opacity-40">
         34/LDN

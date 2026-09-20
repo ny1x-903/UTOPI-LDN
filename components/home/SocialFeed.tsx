@@ -92,7 +92,7 @@ function formatLikes(num: number): string {
 
 export function SocialFeed() {
   return (
-    <section className="py-24 bg-[#050505] text-white border-b border-neutral-900 relative overflow-hidden">
+    <section className="py-24 bg-[#1c1c1c] text-white border-b border-neutral-900 relative overflow-hidden">
       {/* Background Watermark */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 text-[160px] md:text-[240px] font-black font-sans text-neutral-950 select-none pointer-events-none tracking-tighter opacity-30 -rotate-90 origin-center -translate-x-1/3">
         SOCIAL

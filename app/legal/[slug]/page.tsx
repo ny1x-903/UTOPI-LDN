@@ -120,7 +120,7 @@ export default async function LegalPage({
   }
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-[#050505] text-white">
+    <div className="pt-28 pb-20 min-h-screen bg-[#1c1c1c] text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <Link
           href="/"

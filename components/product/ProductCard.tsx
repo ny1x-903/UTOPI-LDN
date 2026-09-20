@@ -109,7 +109,7 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Image Container with Badges */}
       <Link
         href={`/product/${product.slug}`}
-        className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a] block"
+        className="relative aspect-[3/4] w-full overflow-hidden bg-[#181818] block"
       >
         <Image
           src={isHovered ? hoverImage : primaryImage}

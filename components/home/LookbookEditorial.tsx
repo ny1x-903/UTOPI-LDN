@@ -7,7 +7,7 @@ import { ArrowUpRight, Camera } from "lucide-react";
 
 export function LookbookEditorial() {
   return (
-    <section className="py-24 bg-[#050505] text-white border-b border-neutral-900">
+    <section className="py-24 bg-[#1c1c1c] text-white border-b border-neutral-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-neutral-900">
           <div>

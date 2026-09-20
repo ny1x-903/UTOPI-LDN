@@ -41,7 +41,7 @@ export default async function WishlistPage() {
   }));
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-[#050505] text-white">
+    <div className="pt-28 pb-20 min-h-screen bg-[#1c1c1c] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="border-b border-neutral-900 pb-6">
           <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#e50914] block mb-1">

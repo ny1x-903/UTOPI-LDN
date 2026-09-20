@@ -70,7 +70,7 @@ export function CollectionSlider() {
   };
 
   return (
-    <section className="py-24 bg-[#050505] text-white border-b border-neutral-900 overflow-hidden">
+    <section className="py-24 bg-[#1c1c1c] text-white border-b border-neutral-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-neutral-900">

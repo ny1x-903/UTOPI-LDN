@@ -21,7 +21,7 @@ export default async function OrderConfirmationPage({
   }
 
   return (
-    <div className="pt-28 pb-24 min-h-screen bg-[#050505] text-white">
+    <div className="pt-28 pb-24 min-h-screen bg-[#1c1c1c] text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Success Header Card */}
         <div className="p-8 md:p-12 bg-neutral-950 border border-neutral-900 text-center space-y-4">

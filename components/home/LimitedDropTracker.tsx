@@ -62,7 +62,7 @@ export function LimitedDropTracker() {
   };
 
   return (
-    <section className="py-24 bg-[#080808] border-t border-b border-neutral-900 text-white relative overflow-hidden">
+    <section className="py-24 bg-[#161616] border-t border-b border-neutral-900 text-white relative overflow-hidden">
       {/* Subtle Orange Glow Ambient Background */}
       <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-[#FF5500]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-[#FF5500]/5 rounded-full blur-[100px] pointer-events-none" />

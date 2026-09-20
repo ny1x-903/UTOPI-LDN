@@ -296,7 +296,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block absolute top-full left-0 w-full bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-neutral-800 shadow-2xl"
+              className="hidden lg:block absolute top-full left-0 w-full bg-[#181818]/98 backdrop-blur-xl border-b border-neutral-800 shadow-2xl"
               onMouseEnter={() => handleMegaMenuEnter(activeMegaMenu)}
               onMouseLeave={handleMegaMenuLeave}
             >
@@ -388,7 +388,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9989] bg-[#050505] lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-[9989] bg-[#1c1c1c] lg:hidden overflow-y-auto"
           >
             {/* Mobile Menu Header Spacer */}
             <div className="h-16" />

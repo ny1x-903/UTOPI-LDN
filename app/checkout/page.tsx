@@ -160,7 +160,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-[#050505] text-white">
+    <div className="pt-24 pb-20 min-h-screen bg-[#1c1c1c] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Header */}
         <div className="border-b border-neutral-900 pb-6 mb-8 flex items-center justify-between">
@@ -374,7 +374,7 @@ export default function CheckoutPage() {
 
               {/* Credit Card Fields */}
               {paymentMethod === "CREDIT_CARD" ? (
-                <div className="mt-4 p-4 bg-[#0a0a0a] border border-neutral-800/80 space-y-3 text-xs font-mono">
+                <div className="mt-4 p-4 bg-[#181818] border border-neutral-800/80 space-y-3 text-xs font-mono">
                   <div>
                     <label className="block text-neutral-400 mb-1">KART ÜZERİNDEKİ İSİM</label>
                     <input
@@ -439,7 +439,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
               ) : (
-                <div className="p-4 bg-[#0a0a0a] border border-neutral-800 text-xs font-mono space-y-2 text-neutral-300">
+                <div className="p-4 bg-[#181818] border border-neutral-800 text-xs font-mono space-y-2 text-neutral-300">
                   <p className="font-bold text-white uppercase">GARANTİ BBVA HESAP BİLGİLERİ:</p>
                   <p>ALICI: UTOPIA LDN TEKSTİL VE DİZAYN A.Ş.</p>
                   <p className="tracking-widest text-[#e50914]">

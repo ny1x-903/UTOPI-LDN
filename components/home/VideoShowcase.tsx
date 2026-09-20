@@ -19,7 +19,7 @@ export function VideoShowcase() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[70vh] min-h-[500px] max-h-[800px] overflow-hidden bg-[#050505] border-b border-neutral-900"
+      className="relative w-full h-[70vh] min-h-[500px] max-h-[800px] overflow-hidden bg-[#1c1c1c] border-b border-neutral-900"
     >
       {/* Video Background — using a dark gradient placeholder since we don't have a real video */}
       <div className="absolute inset-0">

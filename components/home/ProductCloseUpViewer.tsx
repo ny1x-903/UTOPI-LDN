@@ -44,7 +44,7 @@ export function ProductCloseUpViewer() {
   const [activeHotspot, setActiveHotspot] = useState<Hotspot>(HOTSPOTS[0]);
 
   return (
-    <section className="py-24 bg-[#080808] text-white border-b border-neutral-900 overflow-hidden">
+    <section className="py-24 bg-[#161616] text-white border-b border-neutral-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF5500] mb-2">
           <ZoomIn className="w-3.5 h-3.5 text-[#FF5500]" />

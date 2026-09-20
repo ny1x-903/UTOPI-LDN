@@ -133,7 +133,7 @@ export function TestimonialCarousel() {
   };
 
   return (
-    <section className="py-24 bg-[#080808] text-white border-b border-neutral-900 relative overflow-hidden">
+    <section className="py-24 bg-[#161616] text-white border-b border-neutral-900 relative overflow-hidden">
       {/* Background Quote Mark */}
       <div className="absolute right-8 top-12 text-[200px] md:text-[300px] font-serif text-neutral-950 select-none pointer-events-none leading-none opacity-40">
         &ldquo;

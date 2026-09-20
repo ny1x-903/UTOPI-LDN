@@ -18,7 +18,7 @@ export default async function AccountPage() {
   });
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-[#050505] text-white">
+    <div className="pt-28 pb-20 min-h-screen bg-[#1c1c1c] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Profile Header Banner */}
         <div className="p-8 bg-neutral-950 border border-neutral-900 flex flex-col md:flex-row md:items-center justify-between gap-6">

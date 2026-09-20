@@ -2,17 +2,17 @@
 
 @layer base {
   :root {
-    --background: #050505; /* Deep Industrial Black */
+    --background: #111111; /* Deep Industrial Black */
     --foreground: #F5F5F5; /* Crisp Off-White */
-    --card: #0A0A0A;
+    --card: #181818;
     --card-foreground: #F5F5F5;
-    --border: #1A1A1A;
+    --border: #262626;
     --border-hover: #333333;
     --accent-red: #e50914;
     --accent-orange: #FF5500; /* Premium Industrial Orange */
     --accent-cyan: #00f0ff;
     --accent-purple: #8b5cf6;
-    --muted: #111111;
+    --muted: #1f1f1f;
     --muted-foreground: #888888;
     --glass-bg: rgba(0, 0, 0, 0.75);
     --glass-border: rgba(255, 255, 255, 0.05);
@@ -123,14 +123,14 @@
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(17, 17, 17, 0.85);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .glass-card {
-  background: rgba(10, 10, 10, 0.7);
+  background: rgba(24, 24, 24, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -138,7 +138,7 @@
 }
 
 .glass-card:hover {
-  background: rgba(15, 15, 15, 0.9);
+  background: rgba(30, 30, 30, 0.9);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
