@@ -7,9 +7,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
-import { Preloader } from "@/components/ui/Preloader";
+import { DrillAudioPlayer } from "@/components/ui/DrillAudioPlayer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
-import { AudioProvider } from "@/components/providers/AudioProvider";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -77,24 +76,22 @@ export default function RootLayout({
 
         <CartProvider>
           <WishlistProvider>
-            <AudioProvider>
-              {/* Initial Entrance Cinematic Preloader */}
-              <Preloader />
+            {/* Global Audio Player for Vibe */}
+            <DrillAudioPlayer />
 
-              {/* Top Announcement Ticker Bar */}
-              <AnnouncementBar />
+            {/* Top Announcement Ticker Bar */}
+            <AnnouncementBar />
 
-              {/* Global Navbar with Mega Menu */}
-              <Navbar />
+            {/* Global Navbar with Mega Menu */}
+            <Navbar />
 
-              {/* Slide-out Cart Drawer */}
-              <CartDrawer />
+            {/* Slide-out Cart Drawer */}
+            <CartDrawer />
 
-              <main className="flex-1 w-full">{children}</main>
+            <main className="flex-1 w-full">{children}</main>
 
-              {/* Global Brutalist Footer */}
-              <Footer />
-            </AudioProvider>
+            {/* Global Brutalist Footer */}
+            <Footer />
           </WishlistProvider>
         </CartProvider>
       </body>
