@@ -9,6 +9,7 @@ import { VideoShowcase } from "@/components/home/VideoShowcase";
 import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
 import { SocialFeed } from "@/components/home/SocialFeed";
 import { LookbookEditorial } from "@/components/home/LookbookEditorial";
+import { KineticTypography } from "@/components/ui/KineticTypography";
 
 
 export default async function HomePage() {
@@ -52,6 +53,9 @@ export default async function HomePage() {
     <div className="flex flex-col w-full overflow-hidden bg-[#050505]">
       {/* Cinematic Hero with Glitch Effects */}
       <HeroSection />
+
+      {/* Kinetic Typography Scroll Effect */}
+      <KineticTypography text="UTOPIA LDN // BUILT FOR THE SHADOWS" />
 
       {/* Section 01: Brand Philosophy & Manifesto */}
       <BrandManifesto />

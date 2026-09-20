@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import {
   Search,
   ShoppingBag,
@@ -97,18 +97,32 @@ export function Navbar() {
   const { count: wishlistCount } = useWishlist();
 
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    
+    // Scrolled state for background change
+    if (latest > 40) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
+    // Hide on scroll down, show on scroll up
+    if (latest > 150 && latest > previous) {
+      setHidden(true);
+      setActiveMegaMenu(null); // Close mega menu on scroll hide
+    } else {
+      setHidden(false);
+    }
+  });
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -149,11 +163,17 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 w-full z-[9990] transition-all duration-500 ${
+      <motion.header
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" }
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`fixed top-0 left-0 w-full z-[9990] transition-colors duration-500 ${
           scrolled
             ? "bg-[#050505]/95 backdrop-blur-xl border-b border-neutral-900/80 py-3"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4"
+            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -356,7 +376,7 @@ export function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
+      </motion.header>
 
       {/* ============================
           FULL-SCREEN MOBILE MENU

@@ -7,7 +7,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
-import { DrillAudioPlayer } from "@/components/ui/DrillAudioPlayer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 
 const spaceGrotesk = Space_Grotesk({
@@ -76,9 +75,6 @@ export default function RootLayout({
 
         <CartProvider>
           <WishlistProvider>
-            {/* Global Audio Player for Vibe */}
-            <DrillAudioPlayer />
-
             {/* Top Announcement Ticker Bar */}
             <AnnouncementBar />
 

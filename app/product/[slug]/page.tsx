@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { ProductDetailView } from "@/components/product/ProductDetailView";
 import { Metadata } from "next";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const products = await prisma.product.findMany({ select: { slug: true } });
   return products.map((product) => ({

@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Sparkles, Calendar, Layers } from "lucide-react";
 
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const collections = await prisma.collection.findMany({ select: { slug: true } });
