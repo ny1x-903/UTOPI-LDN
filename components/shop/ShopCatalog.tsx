@@ -106,7 +106,7 @@ export function ShopCatalog({
               className={`px-3.5 py-1 text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-all ${
                 selectedCategory === cat
                   ? "bg-foreground text-background font-bold"
-                  : "text-neutral-500 hover:text-foreground bg-neutral-100 border border-border hover:border-foreground/30"
+                  : "text-neutral-500 hover:text-foreground bg-[#0a0a0a] border border-border hover:border-foreground/30"
               }`}
             >
               {cat}
@@ -121,7 +121,7 @@ export function ShopCatalog({
           <div className="flex items-center gap-4">
             <button
               onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-neutral-100 border border-border text-xs font-mono uppercase tracking-wider text-foreground hover:border-foreground/30 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#0a0a0a] border border-border text-xs font-mono uppercase tracking-wider text-foreground hover:border-foreground/30 transition-colors"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-[#e50914]" />
               FİLTRELER {hasActiveFilters && "(AKTİF)"}
@@ -149,7 +149,7 @@ export function ShopCatalog({
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-neutral-100 border border-border px-3 py-2 text-foreground font-mono text-xs uppercase outline-none focus:border-foreground"
+                className="bg-[#0a0a0a] border border-border px-3 py-2 text-foreground font-mono text-xs uppercase outline-none focus:border-foreground"
               >
                 <option value="featured">ÖNE ÇIKANLAR</option>
                 <option value="bestseller">EN ÇOK SATANLAR</option>
@@ -159,7 +159,7 @@ export function ShopCatalog({
             </div>
 
             {/* Grid Layout Switcher (Desktop) */}
-            <div className="hidden lg:flex items-center gap-1 border border-border p-1 bg-neutral-100">
+            <div className="hidden lg:flex items-center gap-1 border border-border p-1 bg-[#0a0a0a]">
               <button
                 onClick={() => setGridCols(2)}
                 className={`p-1.5 transition-colors ${
@@ -193,7 +193,7 @@ export function ShopCatalog({
 
         {/* Collapsible Filter Panel */}
         {filterDrawerOpen && (
-          <div className="mt-4 p-6 bg-neutral-50 border border-border grid grid-cols-1 sm:grid-cols-3 gap-6 animate-in slide-in-from-top-2 duration-200">
+          <div className="mt-4 p-6 bg-[#0a0a0a] border border-border grid grid-cols-1 sm:grid-cols-3 gap-6 animate-in slide-in-from-top-2 duration-200">
             {/* Size Filter */}
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block">
@@ -207,7 +207,7 @@ export function ShopCatalog({
                     className={`px-3 py-1.5 text-xs font-mono font-bold transition-colors ${
                       selectedSize === sz
                         ? "bg-foreground text-background"
-                        : "bg-neutral-100 text-neutral-600 border border-border hover:border-foreground/30"
+                        : "bg-[#0a0a0a] text-neutral-600 border border-border hover:border-foreground/30"
                     }`}
                   >
                     {sz}

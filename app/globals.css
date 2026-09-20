@@ -2,19 +2,20 @@
 
 @layer base {
   :root {
-    --background: #FAFAFA; /* Clean, spacious off-white */
-    --foreground: #0A0A0A; /* Rich Black */
-    --card: #FFFFFF;
-    --card-foreground: #0A0A0A;
-    --border: #E5E5E5;
-    --border-hover: #D4D4D4;
+    --background: #050505; /* Deep Industrial Black */
+    --foreground: #F5F5F5; /* Crisp Off-White */
+    --card: #0A0A0A;
+    --card-foreground: #F5F5F5;
+    --border: #1A1A1A;
+    --border-hover: #333333;
     --accent-red: #e50914;
+    --accent-orange: #FF5500; /* Premium Industrial Orange */
     --accent-cyan: #00f0ff;
     --accent-purple: #8b5cf6;
-    --muted: #F5F5F5;
-    --muted-foreground: #737373;
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(0, 0, 0, 0.05);
+    --muted: #111111;
+    --muted-foreground: #888888;
+    --glass-bg: rgba(0, 0, 0, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.05);
   }
 
   * {
@@ -23,7 +24,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     background-color: var(--background);
     color: var(--foreground);
   }
@@ -57,12 +57,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #CCCCCC;
+    background: #333333;
     border-radius: 0px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #999999;
+    background: var(--accent-orange);
   }
 }
 
@@ -123,23 +123,23 @@
 }
 
 .glass-dark {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(15, 15, 15, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ============================
@@ -272,6 +272,18 @@
 }
 
 /* ============================
+   ORANGE ACCENTS
+   ============================ */
+@keyframes pulse-orange {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.6); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(255, 85, 0, 0); }
+}
+
+.animate-pulse-orange {
+  animation: pulse-orange 2s ease-in-out infinite;
+}
+
+/* ============================
    CYAN & PURPLE ACCENTS
    ============================ */
 @keyframes pulse-cyan {
@@ -295,7 +307,7 @@
   position: absolute;
   inset: 0;
   padding: 2px;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-red));
+  background: linear-gradient(135deg, var(--accent-orange), rgba(255,85,0,0.1) 60%);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
@@ -305,9 +317,9 @@
 
 .vibrant-mesh-bg {
   background-image: 
-    radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(229, 9, 20, 0.05) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(255, 85, 0, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 85, 0, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(255, 255, 255, 0.02) 0px, transparent 50%);
   background-color: var(--background);
 }
 

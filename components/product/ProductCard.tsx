@@ -109,7 +109,7 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Image Container with Badges */}
       <Link
         href={`/product/${product.slug}`}
-        className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100 block"
+        className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a] block"
       >
         <Image
           src={isHovered ? hoverImage : primaryImage}
@@ -219,7 +219,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 {product.piecesSold} / {product.totalPieces}
               </span>
             </div>
-            <div className="w-full h-1 bg-neutral-200">
+            <div className="w-full h-1 bg-neutral-900">
               <div
                 className="h-full bg-[#e50914]"
                 style={{ width: `${percentSold}%` }}
@@ -231,7 +231,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Mobile Quick Add */}
         <button
           onClick={handleQuickAdd}
-          className="mt-4 sm:hidden w-full py-2.5 bg-neutral-200 text-foreground text-[10px] font-mono font-bold tracking-widest uppercase flex items-center justify-center gap-2"
+          className="mt-4 sm:hidden w-full py-2.5 bg-[#111] hover:bg-neutral-900 text-foreground text-[10px] font-mono font-bold tracking-widest uppercase flex items-center justify-center gap-2 transition-colors"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
           HIZLI EKLE
