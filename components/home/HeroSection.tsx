@@ -69,7 +69,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden vibrant-mesh-bg select-none"
+      className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden select-none"
     >
       {/* Floating Accent Orb (Hidden on mobile to prevent lag) */}
       <motion.div
@@ -97,10 +97,18 @@ export function HeroSection() {
         style={{ scale: imageScale }}
       >
         <video
+          ref={(el) => { 
+            if (el) { 
+              el.defaultMuted = true;
+              el.muted = true; 
+            } 
+          }}
           autoPlay
           loop
           muted
           playsInline
+          controls={false}
+          preload="auto"
           poster="/images/hero_campaign.jpg"
           className="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
         >
