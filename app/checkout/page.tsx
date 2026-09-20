@@ -165,7 +165,7 @@ export default function CheckoutPage() {
         {/* Breadcrumb Header */}
         <div className="border-b border-neutral-900 pb-6 mb-8 flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#e50914] block">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#FF5500] block">
               GÜVENLİ ÖDEME ALTYAPISI // 256-BIT SSL
             </span>
             <h1 className="text-2xl sm:text-4xl font-black uppercase tracking-tight font-sans">
@@ -179,8 +179,8 @@ export default function CheckoutPage() {
         </div>
 
         {errorMsg && (
-          <div className="mb-6 p-4 bg-red-950/40 border border-[#e50914] text-xs font-mono text-red-200 flex items-center gap-3">
-            <AlertCircle className="w-4 h-4 text-[#e50914] flex-shrink-0" />
+          <div className="mb-6 p-4 bg-red-950/40 border border-[#FF5500] text-xs font-mono text-red-200 flex items-center gap-3">
+            <AlertCircle className="w-4 h-4 text-[#FF5500] flex-shrink-0" />
             <span>{errorMsg}</span>
           </div>
         )}
@@ -190,8 +190,8 @@ export default function CheckoutPage() {
           <div className="lg:col-span-7 space-y-8">
             {/* 1. Contact Info */}
             <div className="p-6 bg-neutral-950 border border-neutral-900 space-y-4">
-              <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-[#e50914] flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-[#e50914] text-black flex items-center justify-center text-[10px]">
+              <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-[#FF5500] flex items-center gap-2">
+                <span className="w-4 h-4 rounded-full bg-[#FF5500] text-black flex items-center justify-center text-[10px]">
                   1
                 </span>
                 İLETİŞİM BİLGİLERİ
@@ -251,8 +251,8 @@ export default function CheckoutPage() {
 
             {/* 2. Shipping Address */}
             <div className="p-6 bg-neutral-950 border border-neutral-900 space-y-4">
-              <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-[#e50914] flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-[#e50914] text-black flex items-center justify-center text-[10px]">
+              <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-[#FF5500] flex items-center gap-2">
+                <span className="w-4 h-4 rounded-full bg-[#FF5500] text-black flex items-center justify-center text-[10px]">
                   2
                 </span>
                 TESLİMAT ADRESİ (YURTİÇİ KARGO)
@@ -325,8 +325,8 @@ export default function CheckoutPage() {
 
             {/* 3. Payment Method */}
             <div className="p-6 bg-neutral-950 border border-neutral-900 space-y-4">
-              <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-[#e50914] flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-[#e50914] text-black flex items-center justify-center text-[10px]">
+              <h2 className="text-xs font-mono font-bold uppercase tracking-widest text-[#FF5500] flex items-center gap-2">
+                <span className="w-4 h-4 rounded-full bg-[#FF5500] text-black flex items-center justify-center text-[10px]">
                   3
                 </span>
                 ÖDEME YÖNTEMİ
@@ -342,7 +342,7 @@ export default function CheckoutPage() {
                       : "bg-[#111] border-neutral-800 text-neutral-400 hover:border-neutral-600"
                   }`}
                 >
-                  <CreditCard className="w-5 h-5 text-[#e50914] flex-shrink-0 mt-0.5" />
+                  <CreditCard className="w-5 h-5 text-[#FF5500] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-xs font-bold font-mono uppercase">
                       KREDİ / BANKA KARTI
@@ -362,7 +362,7 @@ export default function CheckoutPage() {
                       : "bg-[#111] border-neutral-800 text-neutral-400 hover:border-neutral-600"
                   }`}
                 >
-                  <Building2 className="w-5 h-5 text-[#e50914] flex-shrink-0 mt-0.5" />
+                  <Building2 className="w-5 h-5 text-[#FF5500] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-xs font-bold font-mono uppercase">HAVALE / EFT</div>
                     <div className="text-[10px] font-mono text-neutral-500 mt-1">
@@ -442,7 +442,7 @@ export default function CheckoutPage() {
                 <div className="p-4 bg-[#181818] border border-neutral-800 text-xs font-mono space-y-2 text-neutral-300">
                   <p className="font-bold text-white uppercase">GARANTİ BBVA HESAP BİLGİLERİ:</p>
                   <p>ALICI: UTOPIA LDN TEKSTİL VE DİZAYN A.Ş.</p>
-                  <p className="tracking-widest text-[#e50914]">
+                  <p className="tracking-widest text-[#FF5500]">
                     IBAN: TR34 0006 2000 0001 2345 6789 01
                   </p>
                   <p className="text-[10px] text-neutral-500">
@@ -542,7 +542,7 @@ export default function CheckoutPage() {
           <div className="bg-[#0e0e0e] border border-neutral-800 max-w-md w-full p-6 text-white space-y-6 shadow-2xl animate-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#e50914] animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-white">
                   BKM 3D SECURE GÜVENLİK DOĞRULAMASI
                 </span>
@@ -570,7 +570,7 @@ export default function CheckoutPage() {
                 value={smsCode}
                 onChange={(e) => setSmsCode(e.target.value)}
                 placeholder="6 haneli kod"
-                className="w-full bg-black border border-neutral-700 p-3 text-center text-xl font-mono tracking-widest text-white outline-none focus:border-[#e50914]"
+                className="w-full bg-black border border-neutral-700 p-3 text-center text-xl font-mono tracking-widest text-white outline-none focus:border-[#FF5500]"
               />
             </div>
 

@@ -123,14 +123,14 @@ export function ShopCatalog({
               onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
               className="flex items-center gap-2 px-4 py-2 bg-[#181818] border border-border text-xs font-mono uppercase tracking-wider text-foreground hover:border-foreground/30 transition-colors"
             >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-[#e50914]" />
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#FF5500]" />
               FİLTRELER {hasActiveFilters && "(AKTİF)"}
             </button>
 
             {hasActiveFilters && (
               <button
                 onClick={resetFilters}
-                className="text-xs font-mono text-neutral-500 hover:text-[#e50914] transition-colors flex items-center gap-1"
+                className="text-xs font-mono text-neutral-500 hover:text-[#FF5500] transition-colors flex items-center gap-1"
               >
                 <X className="w-3 h-3" />
                 TEMİZLE
@@ -229,7 +229,7 @@ export function ShopCatalog({
                 step={250}
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
-                className="w-full accent-[#e50914] cursor-pointer"
+                className="w-full accent-[#FF5500] cursor-pointer"
               />
               <div className="flex justify-between text-[10px] font-mono text-neutral-600">
                 <span>1.000 ₺</span>
@@ -244,7 +244,7 @@ export function ShopCatalog({
                   type="checkbox"
                   checked={onlyInStock}
                   onChange={(e) => setOnlyInStock(e.target.checked)}
-                  className="w-4 h-4 rounded-none accent-[#e50914] bg-background border-border cursor-pointer"
+                  className="w-4 h-4 rounded-none accent-[#FF5500] bg-background border-border cursor-pointer"
                 />
                 <span className="text-xs font-mono uppercase text-neutral-600">
                   SADECE STOKTAKİLERİ GÖSTER

@@ -106,7 +106,6 @@ export function HeroSection() {
                 muted
                 playsinline
                 preload="auto"
-                poster="/images/hero_campaign.jpg"
                 class="absolute inset-0 w-full h-full object-cover object-center scale-[1.05] md:scale-[1.30] md:object-[center_top]"
               >
                 <source src="/videos/hero.mp4" type="video/mp4" />

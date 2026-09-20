@@ -53,7 +53,7 @@ const MEGA_MENU_DATA: Record<string, MegaMenuSection[]> = {
           href: "/shop?category=LIMITED",
           description: "Sınırlı Üretim Parçaları",
           badge: "CANLI",
-          badgeColor: "bg-[#FF5500]",
+          badgeColor: "bg-[#FF5500] animate-police-strobe",
         },
         { title: "YENİ GELENLER", href: "/shop?sort=newest", description: "Son Eklenenler" },
         { title: "EN ÇOK SATANLAR", href: "/shop?sort=popular", description: "Topluluk Favorileri" },
@@ -70,7 +70,7 @@ const MEGA_MENU_DATA: Record<string, MegaMenuSection[]> = {
           href: "/collections/drop-01-after-dark",
           description: "Karanlık sokak silüetleri",
           badge: "LIVE",
-          badgeColor: "bg-[#FF5500]",
+          badgeColor: "bg-[#FF5500] animate-police-strobe",
         },
         {
           title: "DROP 02 — NO SIGNAL",
@@ -355,7 +355,7 @@ export function Navbar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
-                        <span className="text-[9px] font-mono text-[#FF5500] tracking-widest flex items-center gap-1 mb-1">
+                        <span className="text-[9px] font-mono text-[#FF5500] tracking-widest flex items-center gap-1 mb-1 animate-police-strobe-text">
                           <Zap className="w-3 h-3" />
                           AKTİF DROP
                         </span>

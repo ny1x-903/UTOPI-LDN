@@ -97,7 +97,7 @@ export function LimitedDropTracker() {
         {/* Drop Spotlight Showcase Card */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-neutral-950 border border-neutral-900 p-6 md:p-10">
           {/* Product Dual Angle Photos */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative aspect-[3/4] bg-neutral-900 border border-neutral-800/80 overflow-hidden group">
               <Image
                 src="/images/products/shadow_hoodie_front.jpg"

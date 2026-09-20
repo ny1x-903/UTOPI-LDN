@@ -75,7 +75,7 @@ export function CartDrawer() {
             {/* Header */}
             <div className="p-6 border-b border-border flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#e50914]" />
+                <span className="w-2 h-2 rounded-full bg-[#FF5500]" />
                 <h2 className="text-sm font-bold uppercase tracking-widest font-mono">
                   SEPETİNİZ ({items.reduce((acc, i) => acc + i.quantity, 0)})
                 </h2>
@@ -101,7 +101,7 @@ export function CartDrawer() {
                     daha ekleyin
                   </span>
                 ) : (
-                  <span className="text-[#e50914] font-bold flex items-center gap-1">
+                  <span className="text-[#FF5500] font-bold flex items-center gap-1">
                     ✓ ÜCRETSİZ SİGORTALI KARGO KAZANDINIZ
                   </span>
                 )}
@@ -109,7 +109,7 @@ export function CartDrawer() {
               </div>
               <div className="w-full h-1 bg-neutral-200 overflow-hidden">
                 <div
-                  className="h-full bg-[#e50914] transition-all duration-300"
+                  className="h-full bg-[#FF5500] transition-all duration-300"
                   style={{ width: `${freeShippingPercent}%` }}
                 />
               </div>
@@ -170,7 +170,7 @@ export function CartDrawer() {
                           </Link>
                           <button
                             onClick={() => removeItem(item.id)}
-                            className="text-neutral-400 hover:text-[#e50914] transition-colors p-1"
+                            className="text-neutral-400 hover:text-[#FF5500] transition-colors p-1"
                             title="Ürünü kaldır"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -237,7 +237,7 @@ export function CartDrawer() {
                     </button>
                   </div>
                   {couponError && (
-                    <p className="text-[10px] font-mono text-[#e50914]">{couponError}</p>
+                    <p className="text-[10px] font-mono text-[#FF5500]">{couponError}</p>
                   )}
                   {couponSuccess && (
                     <p className="text-[10px] font-mono text-emerald-400">{couponSuccess}</p>

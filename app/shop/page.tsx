@@ -52,7 +52,7 @@ export default async function ShopPage() {
     <div className="pt-24 min-h-screen bg-[#1c1c1c] text-white">
       {/* Page Header Banner */}
       <div className="border-b border-neutral-900 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#e50914] block mb-1">
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#FF5500] block mb-1">
           UTOPIA LDN ARCHIVE // REPO 34
         </span>
         <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight font-sans">

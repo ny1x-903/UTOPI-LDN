@@ -127,7 +127,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   onClick={() => setSelectedImageIndex(idx)}
                   className={`relative w-20 h-24 md:w-24 md:h-32 bg-neutral-100 border transition-all overflow-hidden flex-shrink-0 ${
                     selectedImageIndex === idx
-                      ? "border-[#e50914] opacity-100"
+                      ? "border-[#FF5500] opacity-100"
                       : "border-border opacity-60 hover:opacity-90"
                   }`}
                 >
@@ -159,7 +159,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               {/* Tag Overlays */}
               <div className="absolute top-4 left-4 flex flex-col gap-2">
                 {product.isLimited && (
-                  <span className="bg-[#e50914] text-white text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1">
+                  <span className="bg-[#FF5500] text-white text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1">
                     LIMITED DROP // ONLY {product.totalPieces} PIECES
                   </span>
                 )}
@@ -223,7 +223,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   onClick={() => setSizeGuideOpen(true)}
                   className="text-neutral-500 hover:text-foreground flex items-center gap-1 underline underline-offset-4 decoration-neutral-300"
                 >
-                  <Ruler className="w-3.5 h-3.5 text-[#e50914]" />
+                  <Ruler className="w-3.5 h-3.5 text-[#FF5500]" />
                   BEDEN TABLOSU
                 </button>
               </div>
@@ -247,7 +247,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                     >
                       {v.size}
                       {v.stock > 0 && v.stock <= 3 && (
-                        <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#e50914]" />
+                        <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#FF5500]" />
                       )}
                     </button>
                   );
@@ -255,7 +255,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               </div>
 
               {isLowStock && (
-                <p className="text-[11px] font-mono text-[#e50914] flex items-center gap-1">
+                <p className="text-[11px] font-mono text-[#FF5500] flex items-center gap-1">
                   <Zap className="w-3 h-3" />
                   DİKKAT: {selectedSize} bedende son {selectedVariant?.stock} adet kaldı!
                 </p>
@@ -278,7 +278,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   onClick={() => toggleWishlist(product.id)}
                   className={`p-4 border transition-colors ${
                     isFavorited
-                      ? "bg-[#e50914] border-[#e50914] text-white"
+                      ? "bg-[#FF5500] border-[#FF5500] text-white"
                       : "bg-background border-border text-foreground hover:border-neutral-400"
                   }`}
                   aria-label="Wishlist"
@@ -337,9 +337,9 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.description && (
-                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
                     <p>{product.description}</p>
-                    <p className="text-[11px] text-neutral-500">
+                    <p className="text-[11px] text-neutral-400">
                       KESİM: {product.fit} // RENK KODU: {product.colorHex}
                     </p>
                   </div>
@@ -360,7 +360,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.material && (
-                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
                     <p>• {product.material}</p>
                     <p>• 30°C'de tersten benzer renklerle yıkayınız.</p>
                     <p>• Ağartıcı ve tamburlu kurutma uygulamayınız.</p>
@@ -383,7 +383,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.shipping && (
-                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
                     <p>
                       Siparişleriniz İstanbul merkez stüdyomuzdan 24-48 saat içinde özel korumalı UTOPIA LDN arşiv kutusunda kargolanır.
                     </p>
@@ -408,7 +408,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.returns && (
-                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
                     <p>
                       Ürünü teslim aldığınız tarihten itibaren 14 gün içinde faturası ve etiketiyle birlikte ücretsiz geri gönderebilirsiniz.
                     </p>
@@ -449,7 +449,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
           <div className="bg-background border border-border max-w-xl w-full p-6 md:p-8 text-foreground space-y-6">
             <div className="flex justify-between items-center border-b border-border pb-4">
               <div className="flex items-center gap-2">
-                <Ruler className="w-4 h-4 text-[#e50914]" />
+                <Ruler className="w-4 h-4 text-[#FF5500]" />
                 <h3 className="text-sm font-bold uppercase tracking-widest font-mono">
                   UTOPIA LDN BEDEN ÖLÇÜ REHBERİ
                 </h3>
