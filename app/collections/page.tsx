@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-
+export const dynamic = "force-static";
 export default async function CollectionsIndexPage() {
   const collections = await prisma.collection.findMany({
     include: {

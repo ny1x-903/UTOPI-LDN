@@ -8,15 +8,9 @@ export const metadata: Metadata = {
     "Explore the complete UTOPIA LDN streetwear archive. Heavyweight hoodies, tactical cargos, boxy tees, and technical outerwear.",
 };
 
+export const dynamic = "force-static";
 
-export default async function ShopPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ category?: string }>;
-}) {
-  const params = await searchParams;
-  const initialCategory = params.category || "TÜMÜ";
-
+export default async function ShopPage() {
   const [rawProducts, collections] = await Promise.all([
     prisma.product.findMany({
       where: { status: "ACTIVE" },
@@ -73,8 +67,9 @@ export default async function ShopPage({
       <ShopCatalog
         initialProducts={products}
         collections={collections}
-        initialCategory={initialCategory}
+        initialCategory={"TÜMÜ"}
       />
     </div>
   );
 }
+

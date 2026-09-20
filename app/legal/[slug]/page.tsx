@@ -1,10 +1,19 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
 import { FileText, ArrowLeft, ShieldCheck } from "lucide-react";
 import { Metadata } from "next";
 
+export const dynamicParams = false;
 
+export function generateStaticParams() {
+  return [
+    { slug: "kvkk" },
+    { slug: "privacy-policy" },
+    { slug: "distance-sales" },
+    { slug: "return-policy" },
+    { slug: "shipping-policy" },
+  ];
+}
 interface LegalData {
   title: string;
   category: string;
