@@ -128,7 +128,7 @@ export function LimitedDropTracker() {
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider bg-[#FF5500] text-white px-2 py-0.5 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider police-strobe px-2 py-0.5 font-bold">
                   KÜRESEL SINIRLI DROP
                 </span>
                 <span className="text-[10px] font-mono text-neutral-400">

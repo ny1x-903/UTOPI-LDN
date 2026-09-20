@@ -100,6 +100,42 @@
 /* ============================
    TEXT GLOW EFFECTS
    ============================ */
+/* Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes police-strobe-bg {
+  0%, 5% { background-color: #ff0000; box-shadow: 0 0 15px 2px rgba(255,0,0,0.8); }
+  6%, 10% { background-color: transparent; box-shadow: none; }
+  11%, 15% { background-color: #ff0000; box-shadow: 0 0 15px 2px rgba(255,0,0,0.8); }
+  16%, 50% { background-color: transparent; box-shadow: none; }
+  51%, 55% { background-color: #0055ff; box-shadow: 0 0 15px 2px rgba(0,85,255,0.8); }
+  56%, 60% { background-color: transparent; box-shadow: none; }
+  61%, 65% { background-color: #0055ff; box-shadow: 0 0 15px 2px rgba(0,85,255,0.8); }
+  66%, 100% { background-color: transparent; box-shadow: none; }
+}
+
+.police-strobe {
+  animation: police-strobe-bg 1.2s infinite;
+  color: white; /* Ensure text is visible */
+}
+
+@keyframes police-strobe-text {
+  0%, 5% { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
+  6%, 10% { color: inherit; text-shadow: none; }
+  11%, 15% { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
+  16%, 50% { color: inherit; text-shadow: none; }
+  51%, 55% { color: #0055ff; text-shadow: 0 0 8px #0055ff; }
+  56%, 60% { color: inherit; text-shadow: none; }
+  61%, 65% { color: #0055ff; text-shadow: 0 0 8px #0055ff; }
+  66%, 100% { color: inherit; text-shadow: none; }
+}
+
+.police-strobe-text {
+  animation: police-strobe-text 1.2s infinite;
+}
+
 .text-glow {
   text-shadow: 0 0 24px rgba(229, 9, 20, 0.2);
 }
