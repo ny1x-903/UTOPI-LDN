@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -68,10 +69,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
-      <body className="bg-[#050505] text-[#f5f5f5] min-h-screen flex flex-col font-sans antialiased selection:bg-[#e50914] selection:text-white">
+    <html lang="tr" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <body className="bg-background text-foreground min-h-screen flex flex-col font-sans antialiased selection:bg-[#e50914] selection:text-white">
         {/* Subtle Luxury Film Grain Texture Layer */}
         <div className="film-grain" aria-hidden="true" />
+        <SmoothScroll />
 
         <CartProvider>
           <WishlistProvider>

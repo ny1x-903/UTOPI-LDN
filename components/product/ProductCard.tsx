@@ -104,12 +104,12 @@ export function ProductCard({ product }: ProductCardProps) {
       }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{ perspective: 1000, transformStyle: "preserve-3d" }}
-      className="group relative flex flex-col bg-[#070707] border border-neutral-900 hover:border-neutral-700 transition-colors duration-300 z-10 hover:z-20 shadow-none hover:shadow-2xl hover:shadow-[#e50914]/5"
+      className="group relative flex flex-col bg-background border border-border hover:border-foreground/20 transition-colors duration-300 z-10 hover:z-20 shadow-none hover:shadow-2xl hover:shadow-[#e50914]/5"
     >
       {/* Image Container with Badges */}
       <Link
         href={`/product/${product.slug}`}
-        className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-950 block"
+        className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100 block"
       >
         <Image
           src={isHovered ? hoverImage : primaryImage}
@@ -141,8 +141,8 @@ export function ProductCard({ product }: ProductCardProps) {
 
           <button
             onClick={handleWishlistClick}
-            className={`p-2 bg-black/50 backdrop-blur-md border border-white/10 hover:border-white transition-all ${
-              isFavorited ? "text-[#e50914]" : "text-white"
+            className={`p-2 bg-background/50 backdrop-blur-md border border-border hover:border-foreground transition-all ${
+              isFavorited ? "text-[#e50914]" : "text-foreground"
             }`}
           >
             <Heart className={`w-4 h-4 ${isFavorited ? "fill-current" : ""}`} />
@@ -175,7 +175,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <button
               onClick={handleQuickAdd}
-              className="w-full py-2.5 bg-white text-black text-[10px] font-mono font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2"
+              className="w-full py-2.5 bg-foreground text-background text-[10px] font-mono font-bold tracking-widest uppercase hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
               SEPETE EKLE
@@ -185,21 +185,21 @@ export function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Product Info */}
-      <div className="p-4 flex flex-col flex-grow z-10 relative bg-[#070707]">
+      <div className="p-4 flex flex-col flex-grow z-10 relative bg-background">
         <div className="flex justify-between items-start gap-4 mb-2">
           <div>
-            <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-1">
+            <div className="text-[10px] font-mono text-neutral-600 uppercase tracking-widest mb-1">
               {product.category}
             </div>
             <Link
               href={`/product/${product.slug}`}
-              className="text-sm font-bold font-sans uppercase tracking-tight text-white group-hover:text-[#e50914] transition-colors line-clamp-1"
+              className="text-sm font-bold font-sans uppercase tracking-tight text-foreground group-hover:text-[#e50914] transition-colors line-clamp-1"
             >
               {product.name}
             </Link>
           </div>
           <div className="text-right shrink-0">
-            <div className="text-sm font-mono font-bold text-white">
+            <div className="text-sm font-mono font-bold text-foreground">
               {product.price.toLocaleString("tr-TR")} ₺
             </div>
             {product.compareAtPrice && (
@@ -212,14 +212,14 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Progress Bar for Limited Items */}
         {product.isLimited && percentSold !== null && (
-          <div className="mt-auto pt-4 border-t border-neutral-900">
+          <div className="mt-auto pt-4 border-t border-border">
             <div className="flex justify-between text-[9px] font-mono uppercase tracking-widest mb-1.5">
               <span className="text-[#e50914] font-bold">SOLD OUT: {percentSold}%</span>
               <span className="text-neutral-500">
                 {product.piecesSold} / {product.totalPieces}
               </span>
             </div>
-            <div className="w-full h-1 bg-neutral-900">
+            <div className="w-full h-1 bg-neutral-200">
               <div
                 className="h-full bg-[#e50914]"
                 style={{ width: `${percentSold}%` }}
@@ -231,7 +231,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Mobile Quick Add */}
         <button
           onClick={handleQuickAdd}
-          className="mt-4 sm:hidden w-full py-2.5 bg-neutral-900 text-white text-[10px] font-mono font-bold tracking-widest uppercase flex items-center justify-center gap-2"
+          className="mt-4 sm:hidden w-full py-2.5 bg-neutral-200 text-foreground text-[10px] font-mono font-bold tracking-widest uppercase flex items-center justify-center gap-2"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
           HIZLI EKLE

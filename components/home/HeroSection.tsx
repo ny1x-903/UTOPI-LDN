@@ -69,7 +69,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen min-h-[600px] max-h-[1000px] flex items-center justify-center overflow-hidden bg-[#050505] select-none"
+      className="relative w-full h-screen min-h-[600px] max-h-[1000px] flex items-center justify-center overflow-hidden bg-background select-none"
     >
       {/* Background Video with parallax */}
       <motion.div
@@ -86,10 +86,9 @@ export function HeroSection() {
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
-        {/* Cinematic Vignette & Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
-        <div className="absolute inset-0 bg-radial-vignette opacity-80 pointer-events-none" />
+        {/* Cinematic Vignette & Gradients for Light Theme */}
+        <div className="absolute inset-0 bg-background/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none" />
       </motion.div>
 
       {/* Floating Accent Orb */}
@@ -106,26 +105,26 @@ export function HeroSection() {
       {/* Floating System Coordinates */}
       <motion.div
         style={{ opacity: contentOpacity }}
-        className="absolute top-28 left-6 md:left-12 z-10 hidden sm:block text-[10px] font-mono text-neutral-400 space-y-1"
+        className="absolute top-28 left-6 md:left-12 z-10 hidden sm:block text-[10px] font-mono text-neutral-600 space-y-1"
       >
         <p className="flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#e50914] animate-pulse-red" />
           GEO // 41.0082° N, 28.9784° E
         </p>
         <p className="text-neutral-500">LONDON ↔ ISTANBUL AXIS</p>
-        <p className="text-neutral-600 mt-2">SYS.STATUS: ONLINE</p>
+        <p className="text-neutral-700 mt-2">SYS.STATUS: ONLINE</p>
       </motion.div>
 
       <motion.div
         style={{ opacity: contentOpacity }}
-        className="absolute top-28 right-6 md:right-12 z-10 hidden sm:block text-[10px] font-mono text-neutral-400 text-right space-y-1"
+        className="absolute top-28 right-6 md:right-12 z-10 hidden sm:block text-[10px] font-mono text-neutral-600 text-right space-y-1"
       >
-        <p className="text-white font-bold flex items-center justify-end gap-1.5">
+        <p className="text-foreground font-bold flex items-center justify-end gap-1.5">
           <Zap className="w-3 h-3 text-[#e50914]" />
           LIMITED DROP 01 // LIVE
         </p>
         <p className="text-neutral-500">HEAVYWEIGHT FRENCH TERRY 480 GSM</p>
-        <p className="text-neutral-600 mt-2">100 PCS WORLDWIDE</p>
+        <p className="text-neutral-700 mt-2">100 PCS WORLDWIDE</p>
       </motion.div>
 
       {/* Hero Center Editorial Content */}
@@ -149,7 +148,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.96, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-[-0.06em] uppercase text-white font-sans text-glow-white leading-none"
+          className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-[-0.06em] uppercase text-foreground font-sans leading-none drop-shadow-md"
         >
           <GlitchText text="UTOPIA" /> <span className="text-[#e50914]">LDN</span>
         </motion.h1>
@@ -159,7 +158,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-4 sm:mt-6 text-[10px] sm:text-xs md:text-sm font-mono uppercase tracking-[0.2em] sm:tracking-[0.35em] text-neutral-300 max-w-2xl leading-relaxed px-2"
+          className="mt-4 sm:mt-6 text-[10px] sm:text-xs md:text-sm font-mono uppercase tracking-[0.2em] sm:tracking-[0.35em] text-neutral-700 max-w-2xl leading-relaxed px-2 font-semibold"
         >
           NOT DESIGNED TO BLEND IN. BUILT FOR THE SHADOWS.
         </motion.p>
@@ -173,14 +172,14 @@ export function HeroSection() {
         >
           <Link
             href="/shop"
-            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-black text-[10px] sm:text-xs font-extrabold tracking-widest uppercase hover:bg-neutral-200 transition-all transform hover:-translate-y-0.5 shadow-xl hover:shadow-2xl group flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-foreground text-background text-[10px] sm:text-xs font-extrabold tracking-widest uppercase hover:bg-neutral-800 transition-all transform hover:-translate-y-0.5 shadow-xl hover:shadow-2xl group flex items-center justify-center gap-2"
           >
             KOLEKSİYONU İNCELE
             <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
           </Link>
           <Link
             href="/collections/drop-01-after-dark"
-            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 glass text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all transform hover:-translate-y-0.5 animate-border-glow flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 glass text-foreground text-[10px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white transition-all transform hover:-translate-y-0.5 shadow-md flex items-center justify-center gap-2 border-neutral-300/50"
           >
             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#e50914] animate-pulse-red" />
             DROP 01 // AFTER DARK
@@ -193,14 +192,14 @@ export function HeroSection() {
         onClick={scrollToNext}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-neutral-500 hover:text-white transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-neutral-600 hover:text-foreground transition-colors"
       >
         <span>ARŞİVE GİRİŞ YAP</span>
         <ArrowDown className="w-3.5 h-3.5" />
       </motion.button>
 
       {/* Bottom Gradient Transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-[2]" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-[2]" />
     </section>
   );
 }

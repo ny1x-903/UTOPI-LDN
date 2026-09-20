@@ -35,7 +35,7 @@ export function FeaturedGrid({ products }: FeaturedGridProps) {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="py-24 bg-[#050505] text-white border-b border-neutral-900 overflow-hidden">
+    <section className="py-24 bg-background text-foreground border-b border-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header and Category Filter Tabs */}
         <motion.div 
@@ -43,7 +43,7 @@ export function FeaturedGrid({ products }: FeaturedGridProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-neutral-900"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-border"
         >
           <div>
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e50914] mb-1">
@@ -63,8 +63,8 @@ export function FeaturedGrid({ products }: FeaturedGridProps) {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3.5 py-1.5 text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-white text-black scale-105"
-                    : "bg-neutral-950 text-neutral-400 border border-neutral-900 hover:border-neutral-600 hover:text-white"
+                    ? "bg-foreground text-background scale-105"
+                    : "bg-neutral-100 text-neutral-600 border border-border hover:border-foreground/30 hover:text-foreground"
                 }`}
               >
                 {cat}
@@ -98,15 +98,15 @@ export function FeaturedGrid({ products }: FeaturedGridProps) {
         >
           <Link
             href="/shop"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-neutral-950 border border-neutral-800 text-white text-xs font-mono font-bold tracking-widest uppercase overflow-hidden"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-neutral-100 border border-border text-foreground text-xs font-mono font-bold tracking-widest uppercase overflow-hidden"
           >
             {/* Hover Glitch Background */}
-            <div className="absolute inset-0 w-0 bg-white transition-all duration-500 ease-out group-hover:w-full z-0" />
+            <div className="absolute inset-0 w-0 bg-foreground transition-all duration-500 ease-out group-hover:w-full z-0" />
             
-            <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
+            <span className="relative z-10 transition-colors duration-500 group-hover:text-background">
               TÜM ARŞİVİ GÖRÜNTÜLE ({products.length}+ PARÇA)
             </span>
-            <ArrowRight className="w-4 h-4 text-[#e50914] relative z-10 transition-colors duration-500 group-hover:text-black" />
+            <ArrowRight className="w-4 h-4 text-[#e50914] relative z-10 transition-colors duration-500 group-hover:text-background" />
           </Link>
         </motion.div>
       </div>

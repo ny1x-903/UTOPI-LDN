@@ -87,16 +87,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[99990] bg-[#050505]/95 backdrop-blur-xl flex flex-col p-6 md:p-12 text-white"
+          className="fixed inset-0 z-[99990] bg-background/95 backdrop-blur-xl flex flex-col p-6 md:p-12 text-foreground"
         >
           {/* Top Bar */}
-          <div className="flex justify-between items-center max-w-5xl mx-auto w-full border-b border-neutral-800 pb-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+          <div className="flex justify-between items-center max-w-5xl mx-auto w-full border-b border-border pb-4">
+            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500">
               UTOPIA ARCHIVE SEARCH // ESC TO CLOSE
             </span>
             <button
               onClick={onClose}
-              className="p-2 text-neutral-400 hover:text-white transition-colors"
+              className="p-2 text-neutral-500 hover:text-foreground transition-colors"
               aria-label="Close search"
             >
               <X className="w-6 h-6" />
@@ -106,14 +106,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {/* Search Input */}
           <div className="max-w-5xl mx-auto w-full my-8">
             <div className="relative flex items-center">
-              <Search className="w-7 h-7 text-neutral-500 absolute left-0" />
+              <Search className="w-7 h-7 text-neutral-400 absolute left-0" />
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="ARAMAK İSTEDİĞİNİZ PARÇAYI YAZIN..."
-                className="w-full bg-transparent pl-12 pr-4 py-4 text-2xl md:text-4xl font-light uppercase tracking-wider text-white placeholder-neutral-700 outline-none border-b border-neutral-800 focus:border-[#e50914] transition-colors"
+                className="w-full bg-transparent pl-12 pr-4 py-4 text-2xl md:text-4xl font-light uppercase tracking-wider text-foreground placeholder-neutral-400 outline-none border-b border-border focus:border-[#e50914] transition-colors"
               />
               {loading && (
                 <div className="absolute right-0 w-5 h-5 border-2 border-[#e50914] border-t-transparent rounded-full animate-spin" />
@@ -135,7 +135,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       <button
                         key={item}
                         onClick={() => setQuery(item)}
-                        className="px-4 py-2 border border-neutral-800 hover:border-neutral-500 bg-neutral-900/40 text-xs md:text-sm uppercase tracking-wider text-neutral-300 hover:text-white transition-all rounded-none"
+                        className="px-4 py-2 border border-border hover:border-foreground/30 bg-neutral-100 text-xs md:text-sm uppercase tracking-wider text-neutral-600 hover:text-foreground transition-all rounded-none"
                       >
                         {item}
                       </button>
@@ -151,7 +151,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     <Link
                       href="/collections/drop-01-after-dark"
                       onClick={onClose}
-                      className="group p-5 border border-neutral-800/80 bg-neutral-950 hover:border-neutral-600 transition-all block"
+                      className="group p-5 border border-border bg-neutral-50 hover:border-foreground/30 transition-all block"
                     >
                       <span className="text-[10px] font-mono text-[#e50914] block">
                         DROP 01
@@ -164,9 +164,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     <Link
                       href="/collections/drop-02-no-signal"
                       onClick={onClose}
-                      className="group p-5 border border-neutral-800/80 bg-neutral-950 hover:border-neutral-600 transition-all block"
+                      className="group p-5 border border-border bg-neutral-50 hover:border-foreground/30 transition-all block"
                     >
-                      <span className="text-[10px] font-mono text-neutral-400 block">
+                      <span className="text-[10px] font-mono text-neutral-500 block">
                         DROP 02
                       </span>
                       <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1">
@@ -177,9 +177,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     <Link
                       href="/shop?category=LIMITED"
                       onClick={onClose}
-                      className="group p-5 border border-neutral-800/80 bg-neutral-950 hover:border-neutral-600 transition-all block"
+                      className="group p-5 border border-border bg-neutral-50 hover:border-foreground/30 transition-all block"
                     >
-                      <span className="text-[10px] font-mono text-neutral-400 block">
+                      <span className="text-[10px] font-mono text-neutral-500 block">
                         ARCHIVE
                       </span>
                       <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1">
@@ -197,9 +197,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     key={product.id}
                     href={`/product/${product.slug}`}
                     onClick={onClose}
-                    className="group border border-neutral-900 bg-neutral-950 hover:border-neutral-700 transition-all p-3 block"
+                    className="group border border-border bg-neutral-50 hover:border-foreground/30 transition-all p-3 block"
                   >
-                    <div className="relative aspect-[3/4] bg-neutral-900 overflow-hidden mb-3">
+                    <div className="relative aspect-[3/4] bg-neutral-200 overflow-hidden mb-3">
                       <Image
                         src={product.imageUrl || "/images/products/shadow_hoodie_front.jpg"}
                         alt={product.name}
@@ -213,13 +213,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         </span>
                       )}
                     </div>
-                    <div className="flex justify-between items-start text-xs font-mono text-neutral-400">
+                    <div className="flex justify-between items-start text-xs font-mono text-neutral-500">
                       <span>{product.category}</span>
-                      <span className="text-white font-bold">
+                      <span className="text-foreground font-bold">
                         {product.price.toLocaleString("tr-TR")} ₺
                       </span>
                     </div>
-                    <h4 className="text-sm font-semibold tracking-tight uppercase text-white mt-1 group-hover:text-neutral-300">
+                    <h4 className="text-sm font-semibold tracking-tight uppercase text-foreground mt-1 group-hover:text-neutral-600">
                       {product.name}
                     </h4>
                   </Link>
@@ -227,11 +227,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
             ) : (
               !loading && (
-                <div className="text-center py-20 text-neutral-500">
+                <div className="text-center py-20 text-neutral-600">
                   <p className="text-lg uppercase tracking-widest font-light">
                     "{query}" ile eşleşen parça bulunamadı.
                   </p>
-                  <p className="text-xs font-mono text-neutral-600 mt-2">
+                  <p className="text-xs font-mono text-neutral-500 mt-2">
                     Lütfen kelimelerinizi kontrol edin veya kategorilere göz atın.
                   </p>
                 </div>

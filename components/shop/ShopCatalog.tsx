@@ -97,7 +97,7 @@ export function ShopCatalog({
   return (
     <div className="w-full">
       {/* Category Pills Bar */}
-      <div className="border-b border-neutral-900 bg-neutral-950 sticky top-[68px] z-20 overflow-x-auto custom-scroll">
+      <div className="border-b border-border bg-background sticky top-[68px] z-20 overflow-x-auto custom-scroll">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-1.5 py-3">
           {CATEGORIES.map((cat) => (
             <button
@@ -105,8 +105,8 @@ export function ShopCatalog({
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1 text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-all ${
                 selectedCategory === cat
-                  ? "bg-white text-black font-bold"
-                  : "text-neutral-400 hover:text-white bg-neutral-900/60 border border-neutral-800"
+                  ? "bg-foreground text-background font-bold"
+                  : "text-neutral-500 hover:text-foreground bg-neutral-100 border border-border hover:border-foreground/30"
               }`}
             >
               {cat}
@@ -117,11 +117,11 @@ export function ShopCatalog({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Controls Bar: Filter Toggle, Count, Sorting, Grid */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-neutral-900">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-border">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setFilterDrawerOpen(!filterDrawerOpen)}
-              className="flex items-center gap-2 px-4 py-2 bg-neutral-950 border border-neutral-800 text-xs font-mono uppercase tracking-wider text-white hover:border-neutral-500 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-neutral-100 border border-border text-xs font-mono uppercase tracking-wider text-foreground hover:border-foreground/30 transition-colors"
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-[#e50914]" />
               FİLTRELER {hasActiveFilters && "(AKTİF)"}
@@ -149,7 +149,7 @@ export function ShopCatalog({
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-neutral-950 border border-neutral-800 px-3 py-2 text-white font-mono text-xs uppercase outline-none focus:border-white"
+                className="bg-neutral-100 border border-border px-3 py-2 text-foreground font-mono text-xs uppercase outline-none focus:border-foreground"
               >
                 <option value="featured">ÖNE ÇIKANLAR</option>
                 <option value="bestseller">EN ÇOK SATANLAR</option>
@@ -159,11 +159,11 @@ export function ShopCatalog({
             </div>
 
             {/* Grid Layout Switcher (Desktop) */}
-            <div className="hidden lg:flex items-center gap-1 border border-neutral-800 p-1 bg-neutral-950">
+            <div className="hidden lg:flex items-center gap-1 border border-border p-1 bg-neutral-100">
               <button
                 onClick={() => setGridCols(2)}
                 className={`p-1.5 transition-colors ${
-                  gridCols === 2 ? "bg-white text-black" : "text-neutral-500 hover:text-white"
+                  gridCols === 2 ? "bg-foreground text-background" : "text-neutral-500 hover:text-foreground"
                 }`}
                 aria-label="2 columns"
               >
@@ -172,7 +172,7 @@ export function ShopCatalog({
               <button
                 onClick={() => setGridCols(3)}
                 className={`p-1.5 transition-colors ${
-                  gridCols === 3 ? "bg-white text-black" : "text-neutral-500 hover:text-white"
+                  gridCols === 3 ? "bg-foreground text-background" : "text-neutral-500 hover:text-foreground"
                 }`}
                 aria-label="3 columns"
               >
@@ -181,7 +181,7 @@ export function ShopCatalog({
               <button
                 onClick={() => setGridCols(4)}
                 className={`p-1.5 transition-colors ${
-                  gridCols === 4 ? "bg-white text-black" : "text-neutral-500 hover:text-white"
+                  gridCols === 4 ? "bg-foreground text-background" : "text-neutral-500 hover:text-foreground"
                 }`}
                 aria-label="4 columns"
               >
@@ -193,7 +193,7 @@ export function ShopCatalog({
 
         {/* Collapsible Filter Panel */}
         {filterDrawerOpen && (
-          <div className="mt-4 p-6 bg-neutral-950 border border-neutral-900 grid grid-cols-1 sm:grid-cols-3 gap-6 animate-in slide-in-from-top-2 duration-200">
+          <div className="mt-4 p-6 bg-neutral-50 border border-border grid grid-cols-1 sm:grid-cols-3 gap-6 animate-in slide-in-from-top-2 duration-200">
             {/* Size Filter */}
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block">
@@ -206,8 +206,8 @@ export function ShopCatalog({
                     onClick={() => setSelectedSize(selectedSize === sz ? null : sz)}
                     className={`px-3 py-1.5 text-xs font-mono font-bold transition-colors ${
                       selectedSize === sz
-                        ? "bg-white text-black"
-                        : "bg-neutral-900 text-neutral-400 border border-neutral-800 hover:border-neutral-500"
+                        ? "bg-foreground text-background"
+                        : "bg-neutral-100 text-neutral-600 border border-border hover:border-foreground/30"
                     }`}
                   >
                     {sz}
@@ -220,7 +220,7 @@ export function ShopCatalog({
             <div className="space-y-2">
               <div className="flex justify-between items-center text-xs font-mono uppercase tracking-wider text-neutral-400">
                 <span>MAKSİMUM FİYAT</span>
-                <span className="text-white font-bold">{maxPrice.toLocaleString("tr-TR")} ₺</span>
+                <span className="text-foreground font-bold">{maxPrice.toLocaleString("tr-TR")} ₺</span>
               </div>
               <input
                 type="range"
@@ -244,9 +244,9 @@ export function ShopCatalog({
                   type="checkbox"
                   checked={onlyInStock}
                   onChange={(e) => setOnlyInStock(e.target.checked)}
-                  className="w-4 h-4 rounded-none accent-[#e50914] bg-neutral-900 border-neutral-700 cursor-pointer"
+                  className="w-4 h-4 rounded-none accent-[#e50914] bg-background border-border cursor-pointer"
                 />
-                <span className="text-xs font-mono uppercase text-neutral-300">
+                <span className="text-xs font-mono uppercase text-neutral-600">
                   SADECE STOKTAKİLERİ GÖSTER
                 </span>
               </label>
@@ -262,7 +262,7 @@ export function ShopCatalog({
             </p>
             <button
               onClick={resetFilters}
-              className="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors"
+              className="px-6 py-2.5 bg-foreground text-background text-xs font-bold uppercase tracking-widest hover:bg-foreground/90 transition-colors"
             >
               FİLTRELERİ SIFIRLA
             </button>

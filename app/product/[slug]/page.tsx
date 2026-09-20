@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { ProductDetailView } from "@/components/product/ProductDetailView";
 import { Metadata } from "next";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const products = await prisma.product.findMany({ select: { slug: true } });
@@ -66,7 +66,7 @@ export default async function ProductPage({
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-[#050505] text-white">
+    <div className="pt-20 min-h-screen bg-background text-foreground">
       <ProductDetailView product={product} />
     </div>
   );

@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Sparkles, Calendar, Layers } from "lucide-react";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const collections = await prisma.collection.findMany({ select: { slug: true } });
@@ -61,9 +61,9 @@ export default async function CollectionDetailPage({
   }));
 
   return (
-    <div className="pt-20 min-h-screen bg-[#050505] text-white">
+    <div className="pt-20 min-h-screen bg-background text-foreground">
       {/* Cinematic Collection Hero */}
-      <div className="relative w-full h-[55vh] min-h-[450px] flex items-end pb-12 overflow-hidden border-b border-neutral-900">
+      <div className="relative w-full h-[55vh] min-h-[450px] flex items-end pb-12 overflow-hidden border-b border-border">
         <Image
           src={collection.heroImage}
           alt={collection.title}
@@ -72,7 +72,7 @@ export default async function CollectionDetailPage({
           className="object-cover opacity-35 scale-105"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-4">
           <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ export default async function CollectionDetailPage({
               DROP #{collection.dropNumber}
             </span>
             {collection.releaseDate && (
-              <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+              <span className="text-xs font-mono text-neutral-500 flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5" />
                 LANSMAN: {new Date(collection.releaseDate).toLocaleDateString("tr-TR")}
               </span>
@@ -91,7 +91,7 @@ export default async function CollectionDetailPage({
             {collection.title}
           </h1>
 
-          <p className="text-xs sm:text-sm font-mono text-neutral-300 max-w-2xl leading-relaxed uppercase">
+          <p className="text-xs sm:text-sm font-mono text-neutral-600 max-w-2xl leading-relaxed uppercase">
             {collection.manifesto}
           </p>
         </div>
@@ -99,8 +99,8 @@ export default async function CollectionDetailPage({
 
       {/* Products Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex items-center justify-between pb-6 border-b border-neutral-900 mb-8">
-          <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest flex items-center gap-2">
+        <div className="flex items-center justify-between pb-6 border-b border-border mb-8">
+          <span className="text-xs font-mono text-neutral-500 uppercase tracking-widest flex items-center gap-2">
             <Layers className="w-3.5 h-3.5 text-[#e50914]" />
             KOLEKSİYONDAKİ PARÇALAR [{formattedProducts.length}]
           </span>

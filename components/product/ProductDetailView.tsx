@@ -125,10 +125,10 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                 <button
                   key={img.id || idx}
                   onClick={() => setSelectedImageIndex(idx)}
-                  className={`relative w-20 h-24 md:w-24 md:h-32 bg-neutral-900 border transition-all overflow-hidden flex-shrink-0 ${
+                  className={`relative w-20 h-24 md:w-24 md:h-32 bg-neutral-100 border transition-all overflow-hidden flex-shrink-0 ${
                     selectedImageIndex === idx
                       ? "border-[#e50914] opacity-100"
-                      : "border-neutral-800 opacity-60 hover:opacity-90"
+                      : "border-border opacity-60 hover:opacity-90"
                   }`}
                 >
                   <Image
@@ -138,7 +138,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                     className="object-cover"
                     sizes="96px"
                   />
-                  <span className="absolute bottom-1 left-1 text-[8px] font-mono uppercase bg-black/80 px-1 py-0.5 text-neutral-300">
+                  <span className="absolute bottom-1 left-1 text-[8px] font-mono uppercase bg-background/80 px-1 py-0.5 text-foreground">
                     {img.type}
                   </span>
                 </button>
@@ -146,7 +146,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
             </div>
 
             {/* Main Active Image Viewport */}
-            <div className="relative aspect-[3/4] flex-1 bg-neutral-950 border border-neutral-900 overflow-hidden group">
+            <div className="relative aspect-[3/4] flex-1 bg-neutral-50 border border-border overflow-hidden group">
               <Image
                 src={currentImage}
                 alt={product.name}
@@ -164,14 +164,14 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   </span>
                 )}
                 {product.collection && (
-                  <span className="bg-black/70 backdrop-blur-md border border-neutral-800 text-white text-[10px] font-mono uppercase tracking-wider px-2.5 py-1">
+                  <span className="bg-background/70 backdrop-blur-md border border-border text-foreground text-[10px] font-mono uppercase tracking-wider px-2.5 py-1">
                     {product.collection.title}
                   </span>
                 )}
               </div>
 
               {/* Angle Indicator */}
-              <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md border border-neutral-800 text-[10px] font-mono text-neutral-400 px-3 py-1">
+              <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-md border border-border text-[10px] font-mono text-neutral-600 px-3 py-1">
                 AÇI: {product.images[selectedImageIndex]?.type || "FRONT"} [
                 {selectedImageIndex + 1} / {product.images.length}]
               </div>
@@ -181,33 +181,33 @@ export function ProductDetailView({ product }: ProductDetailProps) {
           {/* Right Column: Garment Information & Commerce Panel */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
             {/* Header info */}
-            <div className="space-y-2 border-b border-neutral-900 pb-6">
-              <div className="flex justify-between items-center text-xs font-mono text-neutral-400 uppercase">
+            <div className="space-y-2 border-b border-border pb-6">
+              <div className="flex justify-between items-center text-xs font-mono text-neutral-500 uppercase">
                 <span>{product.category}</span>
                 <span>RENK: {product.color}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white font-sans">
+              <h1 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-foreground font-sans">
                 {product.name}
               </h1>
 
               {product.subtitle && (
-                <p className="text-xs font-mono text-neutral-400 uppercase">
+                <p className="text-xs font-mono text-neutral-500 uppercase">
                   {product.subtitle}
                 </p>
               )}
 
               {/* Price Row */}
               <div className="pt-2 flex items-baseline gap-4">
-                <span className="text-2xl sm:text-3xl font-bold font-mono text-white">
+                <span className="text-2xl sm:text-3xl font-bold font-mono text-foreground">
                   {product.price.toLocaleString("tr-TR")} ₺
                 </span>
                 {product.compareAtPrice && (
-                  <span className="text-base font-mono line-through text-neutral-600">
+                  <span className="text-base font-mono line-through text-neutral-400">
                     {product.compareAtPrice.toLocaleString("tr-TR")} ₺
                   </span>
                 )}
-                <span className="text-xs font-mono text-emerald-400">
+                <span className="text-xs font-mono text-emerald-600">
                   KDV DAHİL // PEŞİN FİYATINA TAKSİT
                 </span>
               </div>
@@ -216,12 +216,12 @@ export function ProductDetailView({ product }: ProductDetailProps) {
             {/* Size Selector & Guide Trigger */}
             <div className="space-y-3">
               <div className="flex justify-between items-center text-xs font-mono">
-                <span className="text-neutral-400 uppercase">
-                  BEDEN SEÇİN: <strong className="text-white">{selectedSize}</strong>
+                <span className="text-neutral-500 uppercase">
+                  BEDEN SEÇİN: <strong className="text-foreground">{selectedSize}</strong>
                 </span>
                 <button
                   onClick={() => setSizeGuideOpen(true)}
-                  className="text-neutral-400 hover:text-white flex items-center gap-1 underline underline-offset-4 decoration-neutral-700"
+                  className="text-neutral-500 hover:text-foreground flex items-center gap-1 underline underline-offset-4 decoration-neutral-300"
                 >
                   <Ruler className="w-3.5 h-3.5 text-[#e50914]" />
                   BEDEN TABLOSU
@@ -239,10 +239,10 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                       onClick={() => setSelectedSize(v.size)}
                       className={`py-3 text-xs font-mono font-bold transition-all relative ${
                         outOfStock
-                          ? "bg-neutral-950 text-neutral-600 border border-neutral-900 cursor-not-allowed line-through"
+                          ? "bg-neutral-100 text-neutral-400 border border-border cursor-not-allowed line-through"
                           : isSelected
-                          ? "bg-white text-black border border-white"
-                          : "bg-neutral-950 text-neutral-300 border border-neutral-800 hover:border-neutral-500"
+                          ? "bg-foreground text-background border border-foreground"
+                          : "bg-background text-neutral-600 border border-border hover:border-neutral-400"
                       }`}
                     >
                       {v.size}
@@ -268,7 +268,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                 <button
                   onClick={handleAddToCart}
                   disabled={isOutOfStock}
-                  className="flex-1 py-4 bg-white text-black text-xs font-extrabold uppercase tracking-widest hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex-1 py-4 bg-foreground text-background text-xs font-extrabold uppercase tracking-widest hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   {isOutOfStock ? "TÜKENDİ" : "SEPETE EKLE"}
@@ -279,7 +279,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   className={`p-4 border transition-colors ${
                     isFavorited
                       ? "bg-[#e50914] border-[#e50914] text-white"
-                      : "bg-neutral-950 border-neutral-800 text-white hover:border-neutral-600"
+                      : "bg-background border-border text-foreground hover:border-neutral-400"
                   }`}
                   aria-label="Wishlist"
                 >
@@ -290,44 +290,44 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               <button
                 onClick={handleBuyNow}
                 disabled={isOutOfStock}
-                className="w-full py-3.5 bg-[#141414] hover:bg-neutral-800 border border-neutral-800 text-white text-xs font-mono font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-40"
+                className="w-full py-3.5 bg-neutral-100 hover:bg-neutral-200 border border-border text-foreground text-xs font-mono font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-40"
               >
                 HEMEN SATIN AL // EXPRESS CHECKOUT
               </button>
             </div>
 
             {/* Micro Highlights */}
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-neutral-900 text-xs font-mono text-neutral-400">
+            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border text-xs font-mono text-neutral-600">
               <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-neutral-300" />
+                <Truck className="w-4 h-4 text-neutral-500" />
                 <span>24-48 SAATTE SİGORTALI SEVKİYAT</span>
               </div>
               <div className="flex items-center gap-2">
-                <RotateCcw className="w-4 h-4 text-neutral-300" />
+                <RotateCcw className="w-4 h-4 text-neutral-500" />
                 <span>14 GÜN KOŞULSUZ İADE & DEĞİŞİM</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-neutral-300" />
+                <ShieldCheck className="w-4 h-4 text-neutral-500" />
                 <span>ORİJİNAL SERİ NUMARALI ÜRÜN</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  className="flex items-center gap-2 hover:text-foreground transition-colors"
                 >
-                  <Share2 className="w-4 h-4 text-neutral-300" />
+                  <Share2 className="w-4 h-4 text-neutral-500" />
                   <span>{copiedLink ? "BAĞLANTI KOPYALANDI!" : "PAYLAŞ"}</span>
                 </button>
               </div>
             </div>
 
             {/* Accordion Editorial Sections */}
-            <div className="pt-6 border-t border-neutral-900 divide-y divide-neutral-900 font-mono text-xs">
+            <div className="pt-6 border-t border-border divide-y divide-border font-mono text-xs">
               {/* Description */}
               <div>
                 <button
                   onClick={() => toggleAccordion("description")}
-                  className="w-full py-4 flex justify-between items-center text-white font-bold uppercase tracking-wider text-left"
+                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
                 >
                   <span>ÜRÜN HİKAYESİ VE TASARIM</span>
                   <ChevronDown
@@ -337,7 +337,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.description && (
-                  <div className="pb-4 text-neutral-400 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
                     <p>{product.description}</p>
                     <p className="text-[11px] text-neutral-500">
                       KESİM: {product.fit} // RENK KODU: {product.colorHex}
@@ -350,7 +350,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               <div>
                 <button
                   onClick={() => toggleAccordion("material")}
-                  className="w-full py-4 flex justify-between items-center text-white font-bold uppercase tracking-wider text-left"
+                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
                 >
                   <span>MATERYAL VE BAKIM DETAYLARI</span>
                   <ChevronDown
@@ -360,7 +360,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.material && (
-                  <div className="pb-4 text-neutral-400 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
                     <p>• {product.material}</p>
                     <p>• 30°C'de tersten benzer renklerle yıkayınız.</p>
                     <p>• Ağartıcı ve tamburlu kurutma uygulamayınız.</p>
@@ -373,7 +373,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               <div>
                 <button
                   onClick={() => toggleAccordion("shipping")}
-                  className="w-full py-4 flex justify-between items-center text-white font-bold uppercase tracking-wider text-left"
+                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
                 >
                   <span>TESLİMAT VE SEVKİYAT SÜRECİ</span>
                   <ChevronDown
@@ -383,7 +383,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.shipping && (
-                  <div className="pb-4 text-neutral-400 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
                     <p>
                       Siparişleriniz İstanbul merkez stüdyomuzdan 24-48 saat içinde özel korumalı UTOPIA LDN arşiv kutusunda kargolanır.
                     </p>
@@ -398,7 +398,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               <div>
                 <button
                   onClick={() => toggleAccordion("returns")}
-                  className="w-full py-4 flex justify-between items-center text-white font-bold uppercase tracking-wider text-left"
+                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
                 >
                   <span>İADE VE BEDEN DEĞİŞİMİ</span>
                   <ChevronDown
@@ -408,7 +408,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                   />
                 </button>
                 {openAccordions.returns && (
-                  <div className="pb-4 text-neutral-400 leading-relaxed uppercase space-y-2">
+                  <div className="pb-4 text-neutral-600 leading-relaxed uppercase space-y-2">
                     <p>
                       Ürünü teslim aldığınız tarihten itibaren 14 gün içinde faturası ve etiketiyle birlikte ücretsiz geri gönderebilirsiniz.
                     </p>
@@ -424,19 +424,19 @@ export function ProductDetailView({ product }: ProductDetailProps) {
       </div>
 
       {/* Sticky Bottom Bar for Mobile Viewport */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800 p-4 flex items-center justify-between gap-4">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-t border-border p-4 flex items-center justify-between gap-4">
         <div>
-          <span className="text-[10px] font-mono text-neutral-400 uppercase block">
+          <span className="text-[10px] font-mono text-neutral-500 uppercase block">
             BEDEN: {selectedSize}
           </span>
-          <span className="text-base font-bold font-mono text-white">
+          <span className="text-base font-bold font-mono text-foreground">
             {product.price.toLocaleString("tr-TR")} ₺
           </span>
         </div>
         <button
           onClick={handleAddToCart}
           disabled={isOutOfStock}
-          className="flex-1 py-3 bg-white text-black text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
+          className="flex-1 py-3 bg-foreground text-background text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
           {isOutOfStock ? "TÜKENDİ" : "SEPETE EKLE"}
@@ -445,9 +445,9 @@ export function ProductDetailView({ product }: ProductDetailProps) {
 
       {/* Size Guide Modal */}
       {sizeGuideOpen && (
-        <div className="fixed inset-0 z-[99999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#0b0b0b] border border-neutral-800 max-w-xl w-full p-6 md:p-8 text-white space-y-6">
-            <div className="flex justify-between items-center border-b border-neutral-800 pb-4">
+        <div className="fixed inset-0 z-[99999] bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-background border border-border max-w-xl w-full p-6 md:p-8 text-foreground space-y-6">
+            <div className="flex justify-between items-center border-b border-border pb-4">
               <div className="flex items-center gap-2">
                 <Ruler className="w-4 h-4 text-[#e50914]" />
                 <h3 className="text-sm font-bold uppercase tracking-widest font-mono">
@@ -456,21 +456,21 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               </div>
               <button
                 onClick={() => setSizeGuideOpen(false)}
-                className="text-neutral-400 hover:text-white"
+                className="text-neutral-500 hover:text-foreground"
               >
                 ✕
               </button>
             </div>
 
             <div className="flex justify-between items-center text-xs font-mono">
-              <span className="text-neutral-400">
+              <span className="text-neutral-500">
                 ÖLÇÜ BİRİMİ:
               </span>
-              <div className="flex border border-neutral-800">
+              <div className="flex border border-border">
                 <button
                   onClick={() => setMeasurementUnit("cm")}
                   className={`px-3 py-1 ${
-                    measurementUnit === "cm" ? "bg-white text-black font-bold" : "text-neutral-400"
+                    measurementUnit === "cm" ? "bg-foreground text-background font-bold" : "text-neutral-500"
                   }`}
                 >
                   SANTİMETRE (CM)
@@ -478,7 +478,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                 <button
                   onClick={() => setMeasurementUnit("in")}
                   className={`px-3 py-1 ${
-                    measurementUnit === "in" ? "bg-white text-black font-bold" : "text-neutral-400"
+                    measurementUnit === "in" ? "bg-foreground text-background font-bold" : "text-neutral-500"
                   }`}
                 >
                   İNÇ (IN)
@@ -489,34 +489,34 @@ export function ProductDetailView({ product }: ProductDetailProps) {
             <div className="overflow-x-auto">
               <table className="w-full text-xs font-mono text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-neutral-800 text-neutral-400">
+                  <tr className="border-b border-border text-neutral-500">
                     <th className="py-2.5">BEDEN</th>
                     <th className="py-2.5">GÖĞÜS ENİ</th>
                     <th className="py-2.5">BOY UZUNLUĞU</th>
                     <th className="py-2.5">OMUZ GENİŞLİĞİ</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-neutral-900 text-neutral-300">
+                <tbody className="divide-y divide-border text-neutral-600">
                   <tr>
-                    <td className="py-2.5 font-bold text-white">S</td>
+                    <td className="py-2.5 font-bold text-foreground">S</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "58 cm" : "22.8 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "70 cm" : "27.5 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "54 cm" : "21.2 in"}</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-white">M</td>
+                    <td className="py-2.5 font-bold text-foreground">M</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "61 cm" : "24.0 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "72 cm" : "28.3 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "56 cm" : "22.0 in"}</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-white">L</td>
+                    <td className="py-2.5 font-bold text-foreground">L</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "64 cm" : "25.2 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "74 cm" : "29.1 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "58 cm" : "22.8 in"}</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-white">XL</td>
+                    <td className="py-2.5 font-bold text-foreground">XL</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "67 cm" : "26.4 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "76 cm" : "29.9 in"}</td>
                     <td className="py-2.5">{measurementUnit === "cm" ? "60 cm" : "23.6 in"}</td>
@@ -531,7 +531,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
 
             <button
               onClick={() => setSizeGuideOpen(false)}
-              className="w-full py-3 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono uppercase tracking-widest transition-colors"
+              className="w-full py-3 bg-neutral-100 hover:bg-neutral-200 text-foreground text-xs font-mono uppercase tracking-widest transition-colors"
             >
               KAPAT
             </button>

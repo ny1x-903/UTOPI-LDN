@@ -2,18 +2,18 @@
 
 @layer base {
   :root {
-    --background: #050505;
-    --foreground: #f5f5f5;
-    --card: #0b0b0b;
-    --card-foreground: #f5f5f5;
-    --border: #1a1a1a;
-    --border-hover: #2e2e2e;
+    --background: #F9F9F8; /* Premium Alabaster / Off-white */
+    --foreground: #0A0A0A; /* Rich Black */
+    --card: #FFFFFF;
+    --card-foreground: #0A0A0A;
+    --border: #E5E5E5;
+    --border-hover: #D4D4D4;
     --accent-red: #e50914;
     --accent-crimson: #991b1b;
-    --muted: #888888;
-    --muted-foreground: #a3a3a3;
-    --glass-bg: rgba(11, 11, 11, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.06);
+    --muted: #E5E5E5;
+    --muted-foreground: #737373;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(0, 0, 0, 0.05);
   }
 
   * {
@@ -23,8 +23,8 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #050505;
-    color: #f5f5f5;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
   body {
@@ -52,16 +52,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #050505;
+    background: var(--background);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #222222;
+    background: #CCCCCC;
     border-radius: 0px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #444444;
+    background: #999999;
   }
 }
 
@@ -100,11 +100,11 @@
    TEXT GLOW EFFECTS
    ============================ */
 .text-glow {
-  text-shadow: 0 0 24px rgba(229, 9, 20, 0.4);
+  text-shadow: 0 0 24px rgba(229, 9, 20, 0.2);
 }
 
 .text-glow-white {
-  text-shadow: 0 0 20px rgba(245, 245, 245, 0.25);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .text-glow-red {
@@ -122,23 +122,23 @@
 }
 
 .glass-dark {
-  background: rgba(5, 5, 5, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .glass-card {
-  background: rgba(15, 15, 15, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  background: rgba(20, 20, 20, 0.6);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 /* ============================
@@ -238,9 +238,9 @@
 .animate-shimmer {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.03) 50%,
+    rgba(0, 0, 0, 0) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 2s ease-in-out infinite;
@@ -360,7 +360,7 @@
    RADIAL VIGNETTE
    ============================ */
 .bg-radial-vignette {
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(249, 249, 248, 0.8) 100%);
 }
 
 /* ============================
@@ -383,7 +383,7 @@
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================

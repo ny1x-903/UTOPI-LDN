@@ -172,8 +172,8 @@ export function Navbar() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className={`fixed top-0 left-0 w-full z-[9990] transition-colors duration-500 ${
           scrolled
-            ? "bg-[#050505]/95 backdrop-blur-xl border-b border-neutral-900/80 py-3"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 border-b border-transparent"
+            ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-sm py-3"
+            : "bg-transparent py-4 border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -181,7 +181,7 @@ export function Navbar() {
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white hover:text-neutral-400 transition-colors"
+              className="p-2 text-foreground hover:text-neutral-500 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -203,10 +203,10 @@ export function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`text-xs font-mono tracking-widest uppercase transition-colors py-2 inline-flex items-center gap-1 hover:text-white ${
+                  className={`text-xs font-mono tracking-widest uppercase transition-colors py-2 inline-flex items-center gap-1 hover:text-foreground ${
                     pathname === link.href
-                      ? "text-white font-bold"
-                      : "text-neutral-400"
+                      ? "text-foreground font-bold"
+                      : "text-neutral-500"
                   }`}
                 >
                   {link.label}
@@ -226,7 +226,7 @@ export function Navbar() {
           <div className="text-center">
             <Link
               href="/"
-              className="text-lg md:text-2xl font-black tracking-[-0.08em] uppercase text-white hover:opacity-85 transition-opacity inline-flex items-center gap-1.5"
+              className="text-lg md:text-2xl font-black tracking-[-0.08em] uppercase text-foreground hover:opacity-85 transition-opacity inline-flex items-center gap-1.5"
             >
               <span>UTOPIA</span>
               <span className="text-[#e50914] text-xs font-mono font-bold tracking-widest px-1.5 py-0.5 border border-[#e50914]/40 bg-[#e50914]/10">
@@ -240,7 +240,7 @@ export function Navbar() {
             {/* Search Trigger */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-1.5 text-neutral-300 hover:text-white transition-colors"
+              className="p-1.5 text-neutral-600 hover:text-foreground transition-colors"
               aria-label="Search archive"
             >
               <Search className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -249,7 +249,7 @@ export function Navbar() {
             {/* Wishlist Link */}
             <Link
               href="/wishlist"
-              className="p-1.5 text-neutral-300 hover:text-white transition-colors relative hidden sm:block"
+              className="p-1.5 text-neutral-600 hover:text-foreground transition-colors relative hidden sm:block"
               aria-label="Wishlist"
             >
               <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -263,7 +263,7 @@ export function Navbar() {
             {/* Account / Admin Link */}
             <Link
               href="/account"
-              className="p-1.5 text-neutral-300 hover:text-white transition-colors hidden sm:block"
+              className="p-1.5 text-neutral-600 hover:text-foreground transition-colors hidden sm:block"
               aria-label="Account"
             >
               <User className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -272,7 +272,7 @@ export function Navbar() {
             {/* Cart Trigger */}
             <button
               onClick={() => setCartOpen(true)}
-              className="p-1.5 text-white hover:text-neutral-300 transition-colors relative flex items-center gap-2 group"
+              className="p-1.5 text-foreground hover:text-neutral-500 transition-colors relative flex items-center gap-2 group"
               aria-label="Cart"
             >
               <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-105 transition-transform" />
