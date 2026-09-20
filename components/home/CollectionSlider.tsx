@@ -75,8 +75,8 @@ export function CollectionSlider() {
         {/* Section Header with Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-neutral-900">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e50914] mb-1">
-              <span className="w-2 h-2 rounded-full bg-[#e50914]" />
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF5500] mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#FF5500]" />
               SECTION 04 // SEASONAL DROP SYSTEM
             </div>
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight font-sans">
@@ -128,14 +128,14 @@ export function CollectionSlider() {
                 <span className="text-[10px] font-mono tracking-widest uppercase px-2.5 py-1 bg-black/70 border border-neutral-800 text-white backdrop-blur-md">
                   {col.status}
                 </span>
-                <span className="text-2xl font-black font-mono text-neutral-600 group-hover:text-[#e50914] transition-colors">
+                <span className="text-2xl font-black font-mono text-neutral-600 group-hover:text-[#FF5500] transition-colors">
                   #{col.dropNumber}
                 </span>
               </div>
 
               {/* Card Bottom Details */}
               <div className="relative z-10 space-y-3">
-                <span className="text-[10px] font-mono text-[#e50914] tracking-widest block">
+                <span className="text-[10px] font-mono text-[#FF5500] tracking-widest block">
                   {col.count}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white font-sans group-hover:text-neutral-200">
@@ -145,7 +145,7 @@ export function CollectionSlider() {
                   {col.manifesto}
                 </p>
 
-                <div className="pt-2 flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-white uppercase group-hover:text-[#e50914] transition-colors">
+                <div className="pt-2 flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-white uppercase group-hover:text-[#FF5500] transition-colors">
                   DROPU KEŞFET
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>

@@ -46,8 +46,8 @@ export function ProductCloseUpViewer() {
   return (
     <section className="py-24 bg-[#080808] text-white border-b border-neutral-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e50914] mb-2">
-          <ZoomIn className="w-3.5 h-3.5 text-[#e50914]" />
+        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF5500] mb-2">
+          <ZoomIn className="w-3.5 h-3.5 text-[#FF5500]" />
           SECTION 05 // PRODUCT CLOSE-UP & MATERIAL ARCHITECTURE
         </div>
         <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight font-sans mb-12">
@@ -75,7 +75,7 @@ export function ProductCloseUpViewer() {
                   style={{ top: `${spot.y}%`, left: `${spot.x}%` }}
                   className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                     isSelected
-                      ? "bg-[#e50914] scale-125 shadow-[0_0_20px_#e50914]"
+                      ? "bg-[#FF5500] scale-125 shadow-[0_0_20px_#FF5500]"
                       : "bg-black/70 border border-white/40 hover:bg-black hover:border-white"
                   }`}
                   aria-label={spot.title}
@@ -94,7 +94,7 @@ export function ProductCloseUpViewer() {
           {/* Inspector Data Panel */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-[#e50914]">
+              <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-[#FF5500]">
                 <Info className="w-3.5 h-3.5" />
                 SEÇİLİ BİLEŞEN
               </div>

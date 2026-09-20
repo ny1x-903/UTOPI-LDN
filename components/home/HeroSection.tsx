@@ -102,7 +102,7 @@ export function HeroSection() {
           muted
           playsInline
           poster="/images/hero_campaign.jpg"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.15]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_top] scale-[1.30]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>

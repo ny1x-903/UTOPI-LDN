@@ -46,8 +46,8 @@ export function FeaturedGrid({ products }: FeaturedGridProps) {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-border"
         >
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e50914] mb-1">
-              <span className="w-2 h-2 rounded-full bg-[#e50914] animate-pulse" />
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF5500] mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />
               SECTION 07 // CURATED STREETWEAR SELECTION
             </div>
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight font-sans">
@@ -106,7 +106,7 @@ export function FeaturedGrid({ products }: FeaturedGridProps) {
             <span className="relative z-10 transition-colors duration-500 group-hover:text-background">
               TÜM ARŞİVİ GÖRÜNTÜLE ({products.length}+ PARÇA)
             </span>
-            <ArrowRight className="w-4 h-4 text-[#e50914] relative z-10 transition-colors duration-500 group-hover:text-background" />
+            <ArrowRight className="w-4 h-4 text-[#FF5500] relative z-10 transition-colors duration-500 group-hover:text-background" />
           </Link>
         </motion.div>
       </div>

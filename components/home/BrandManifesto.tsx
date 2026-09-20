@@ -13,8 +13,8 @@ export function BrandManifesto() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e50914] mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#e50914]" />
+        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF5500] mb-8">
+          <span className="w-2 h-2 rounded-full bg-[#FF5500]" />
           SECTION 01 // BRAND PHILOSOPHY & MANIFESTO
         </div>
 
@@ -28,7 +28,7 @@ export function BrandManifesto() {
               </span>
             </h2>
 
-            <div className="pt-4 border-l-2 border-[#e50914] pl-6 space-y-3">
+            <div className="pt-4 border-l-2 border-[#FF5500] pl-6 space-y-3">
               <p className="text-sm md:text-base text-neutral-300 font-mono leading-relaxed uppercase">
                 İstanbul'un ham gece enerjisi ile Londra'nın distopik drill kültürünün kesişiminde kuruldu.
                 Her dikiş, her 480 GSM kumaş lifi ve her metal donanım tavizsiz bir standardın ürünüdür.
@@ -43,7 +43,7 @@ export function BrandManifesto() {
           <div className="lg:col-span-4 space-y-6 lg:border-l lg:border-neutral-900 lg:pl-8">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-white uppercase">
-                <Layers className="w-4 h-4 text-[#e50914]" />
+                <Layers className="w-4 h-4 text-[#FF5500]" />
                 480 GSM HEAVYWEIGHT DOKUMA
               </div>
               <p className="text-xs text-neutral-400 font-mono leading-relaxed">
@@ -53,7 +53,7 @@ export function BrandManifesto() {
 
             <div className="space-y-2 pt-4 border-t border-neutral-900">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-white uppercase">
-                <ShieldAlert className="w-4 h-4 text-[#e50914]" />
+                <ShieldAlert className="w-4 h-4 text-[#FF5500]" />
                 SINIRLI VE NUMARALI ÜRETİM
               </div>
               <p className="text-xs text-neutral-400 font-mono leading-relaxed">
@@ -63,7 +63,7 @@ export function BrandManifesto() {
 
             <div className="space-y-2 pt-4 border-t border-neutral-900">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-white uppercase">
-                <Compass className="w-4 h-4 text-[#e50914]" />
+                <Compass className="w-4 h-4 text-[#FF5500]" />
                 KÜRESEL STANDART // YEREL RUH
               </div>
               <p className="text-xs text-neutral-400 font-mono leading-relaxed">

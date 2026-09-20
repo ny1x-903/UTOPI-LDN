@@ -30,12 +30,12 @@ export function VideoShowcase() {
           
           {/* Static gradient orbs for cinematic feel (Animations removed to fix lag) */}
           <div
-            className="absolute w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full blur-[80px] sm:blur-[120px] opacity-10 -top-[10%] -left-[20%]"
-            style={{ background: "radial-gradient(circle, #e50914 0%, transparent 70%)" }}
+            className="absolute w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full blur-[80px] sm:blur-[120px] opacity-20 -top-[10%] -left-[20%]"
+            style={{ background: "radial-gradient(circle, #FF5500 0%, transparent 70%)" }}
           />
           <div
-            className="absolute right-[-20%] bottom-[-20%] w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] rounded-full blur-[60px] sm:blur-[100px] opacity-5"
-            style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }}
+            className="absolute right-[-20%] bottom-[-20%] w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] rounded-full blur-[60px] sm:blur-[100px] opacity-15"
+            style={{ background: "radial-gradient(circle, #FF5500 0%, transparent 70%)" }}
           />
         </div>
 
@@ -58,7 +58,7 @@ export function VideoShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-black/50 backdrop-blur-md border border-neutral-800 text-[10px] font-mono tracking-[0.25em] text-[#e50914] uppercase mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 bg-black/50 backdrop-blur-md border border-neutral-800 text-[10px] font-mono tracking-[0.25em] text-[#FF5500] uppercase mb-6"
           >
             <Play className="w-3 h-3 fill-current" />
             CİNEMATİK DENEYİM // SS26 CAMPAIGN
@@ -123,7 +123,7 @@ export function VideoShowcase() {
           {isMuted ? (
             <VolumeX className="w-3.5 h-3.5" />
           ) : (
-            <Volume2 className="w-3.5 h-3.5 text-[#e50914]" />
+            <Volume2 className="w-3.5 h-3.5 text-[#FF5500]" />
           )}
           <span className="hidden sm:inline">{isMuted ? "SES KAPALI" : "ATMOSFER AKTIF"}</span>
         </button>

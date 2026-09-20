@@ -62,13 +62,16 @@ export function LimitedDropTracker() {
   };
 
   return (
-    <section className="py-24 bg-[#080808] border-t border-b border-neutral-900 text-white relative">
+    <section className="py-24 bg-[#080808] border-t border-b border-neutral-900 text-white relative overflow-hidden">
+      {/* Subtle Orange Glow Ambient Background */}
+      <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-[#FF5500]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-[#FF5500]/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-neutral-900">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e50914] mb-1">
-              <Flame className="w-3.5 h-3.5 text-[#e50914] animate-pulse" />
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF5500] mb-1">
+              <Flame className="w-3.5 h-3.5 text-[#FF5500] animate-pulse" />
               SECTION 02 // ACTIVE DROP SPOTLIGHT
             </div>
             <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight font-sans">
@@ -78,7 +81,7 @@ export function LimitedDropTracker() {
 
           {/* Real Live Countdown */}
           <div className="flex items-center gap-2 bg-neutral-950 px-4 py-2 border border-neutral-800">
-            <Timer className="w-4 h-4 text-[#e50914]" />
+            <Timer className="w-4 h-4 text-[#FF5500]" />
             <span className="text-[11px] font-mono text-neutral-400 uppercase mr-2 hidden sm:inline">
               KASA KAPANMASINA:
             </span>
@@ -86,7 +89,7 @@ export function LimitedDropTracker() {
               <span>{String(timeLeft.days).padStart(2, "0")}G</span>:
               <span>{String(timeLeft.hours).padStart(2, "0")}S</span>:
               <span>{String(timeLeft.minutes).padStart(2, "0")}D</span>:
-              <span className="text-[#e50914]">{String(timeLeft.seconds).padStart(2, "0")}SN</span>
+              <span className="text-[#FF5500]">{String(timeLeft.seconds).padStart(2, "0")}SN</span>
             </div>
           </div>
         </div>
@@ -115,7 +118,7 @@ export function LimitedDropTracker() {
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
-              <span className="absolute bottom-2 left-2 text-[9px] font-mono text-[#e50914] bg-black/60 px-2 py-0.5">
+              <span className="absolute bottom-2 left-2 text-[9px] font-mono text-[#FF5500] bg-black/60 px-2 py-0.5">
                 ARKA // 34-LDN KOORDİNAT
               </span>
             </div>
@@ -125,7 +128,7 @@ export function LimitedDropTracker() {
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider bg-[#e50914] text-white px-2 py-0.5 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider bg-[#FF5500] text-white px-2 py-0.5 font-bold">
                   KÜRESEL SINIRLI DROP
                 </span>
                 <span className="text-[10px] font-mono text-neutral-400">
@@ -159,18 +162,18 @@ export function LimitedDropTracker() {
               <div className="flex justify-between items-baseline text-xs font-mono">
                 <span className="text-neutral-400">STOK DURUMU:</span>
                 <span className="font-bold text-white">
-                  <strong className="text-[#e50914]">{soldPieces}</strong> / {totalPieces} SATILDI (%{percentSold})
+                  <strong className="text-[#FF5500]">{soldPieces}</strong> / {totalPieces} SATILDI (%{percentSold})
                 </span>
               </div>
               <div className="w-full h-2 bg-neutral-800 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-neutral-300 via-white to-[#e50914] transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-neutral-300 via-white to-[#FF5500] transition-all duration-500"
                   style={{ width: `${percentSold}%` }}
                 />
               </div>
               <p className="text-[11px] font-mono text-neutral-400 flex items-center justify-between">
                 <span>KALAN ADET: <strong className="text-white">{remainingPieces} PARÇA</strong></span>
-                <span className="text-[#e50914]">TÜKENMEK ÜZERE</span>
+                <span className="text-[#FF5500]">TÜKENMEK ÜZERE</span>
               </p>
             </div>
 
