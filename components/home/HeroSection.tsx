@@ -100,7 +100,8 @@ export function HeroSection() {
           ref={(el) => { 
             if (el) { 
               el.defaultMuted = true;
-              el.muted = true; 
+              el.muted = true;
+              el.play().catch(() => {});
             } 
           }}
           autoPlay
