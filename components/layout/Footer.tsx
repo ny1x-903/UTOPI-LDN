@@ -17,8 +17,10 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-background text-foreground border-t border-border pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-[#111111] text-foreground pt-16 pb-12 overflow-hidden">
+      {/* Premium Gradient Divider */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF5500]/50 to-transparent" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top Section: Newsletter & Brand Identity */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-border">
           <div className="lg:col-span-5 space-y-4">
@@ -26,7 +28,7 @@ export function Footer() {
               <span className="text-xl md:text-2xl font-black tracking-tighter uppercase font-sans">
                 UTOPIA LDN
               </span>
-              <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 bg-[#e50914]/20 border border-[#e50914] text-[#e50914]">
+              <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 bg-[#FF5500]/20 border border-[#FF5500] text-[#FF5500]">
                 EST. 2026
               </span>
             </div>
@@ -47,8 +49,8 @@ export function Footer() {
               VIP UNDERGROUND COMMUNITY ACCESS // SIFIR SPAM
             </span>
             {subscribed ? (
-              <div className="p-4 bg-neutral-100 border border-border text-xs font-mono text-emerald-600 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <div className="p-4 bg-[#181818] border border-[#FF5500]/30 text-xs font-mono text-emerald-500 flex items-center gap-2 shadow-[0_0_10px_rgba(255,85,0,0.1)]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 ÖZEL DROP ERİŞİM LİSTESİNE KAYDINIZ ALINDI. ŞİFRE E-POSTANIZA GÖNDERİLDİ.
               </div>
             ) : (
@@ -59,11 +61,11 @@ export function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-POSTA ADRESİNİZİ YAZIN..."
                   required
-                  className="bg-neutral-100 border border-border px-4 py-3 text-xs font-mono text-foreground placeholder-neutral-500 focus:outline-none focus:border-foreground transition-colors flex-1"
+                  className="bg-[#181818] border border-border px-4 py-3 text-xs font-mono text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF5500] transition-colors flex-1"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-foreground text-background text-xs font-extrabold uppercase tracking-widest hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-[#FF5500] text-white text-xs font-extrabold uppercase tracking-widest hover:bg-[#FF5500]/80 transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,85,0,0.3)]"
                 >
                   ERİŞİM SAĞLA
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -86,7 +88,7 @@ export function Footer() {
               <li><Link href="/shop?category=CARGOS" className="hover:text-foreground transition-colors">CARGOS</Link></li>
               <li><Link href="/shop?category=T-SHIRTS" className="hover:text-foreground transition-colors">T-SHIRTS</Link></li>
               <li><Link href="/shop?category=JACKETS" className="hover:text-foreground transition-colors">JACKETS</Link></li>
-              <li><Link href="/shop?category=LIMITED" className="hover:text-foreground transition-colors text-[#e50914]">LIMITED DROPS</Link></li>
+              <li><Link href="/shop?category=LIMITED" className="hover:text-foreground transition-colors text-[#FF5500]">LIMITED DROPS</Link></li>
             </ul>
           </div>
 
@@ -110,7 +112,7 @@ export function Footer() {
               <li><Link href="/legal/shipping-policy" className="hover:text-foreground transition-colors">TESLİMAT & KARGO</Link></li>
               <li><Link href="/legal/return-policy" className="hover:text-foreground transition-colors">İADE & DEĞİŞİM</Link></li>
               <li><Link href="/account" className="hover:text-foreground transition-colors">SİPARİŞ TAKİBİ</Link></li>
-              <li><Link href="/admin" className="text-[#e50914] hover:underline">ADMIN PANELİ</Link></li>
+              <li><Link href="/admin" className="text-[#FF5500] hover:underline">ADMIN PANELİ</Link></li>
             </ul>
           </div>
 

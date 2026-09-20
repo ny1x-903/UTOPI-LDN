@@ -432,6 +432,29 @@
   background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
 }
 
+@layer utilities {
+  @keyframes laser-scan {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-laser-scan {
+    animation: laser-scan 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
+
 /* ============================
    CUSTOM SCROLL HIDE
    ============================ */

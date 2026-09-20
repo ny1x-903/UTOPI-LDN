@@ -125,10 +125,10 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                 <button
                   key={img.id || idx}
                   onClick={() => setSelectedImageIndex(idx)}
-                  className={`relative w-20 h-24 md:w-24 md:h-32 bg-neutral-100 border transition-all overflow-hidden flex-shrink-0 ${
+                  className={`relative w-20 h-24 md:w-24 md:h-32 bg-[#181818] border transition-all overflow-hidden flex-shrink-0 ${
                     selectedImageIndex === idx
-                      ? "border-[#FF5500] opacity-100"
-                      : "border-border opacity-60 hover:opacity-90"
+                      ? "border-[#FF5500] opacity-100 shadow-[0_0_15px_rgba(255,85,0,0.3)]"
+                      : "border-border opacity-60 hover:opacity-100 hover:border-neutral-500"
                   }`}
                 >
                   <Image
@@ -138,7 +138,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                     className="object-cover"
                     sizes="96px"
                   />
-                  <span className="absolute bottom-1 left-1 text-[8px] font-mono uppercase bg-background/80 px-1 py-0.5 text-foreground">
+                  <span className="absolute bottom-1 left-1 text-[8px] font-mono uppercase bg-black/80 px-1 py-0.5 text-white">
                     {img.type}
                   </span>
                 </button>
@@ -146,32 +146,39 @@ export function ProductDetailView({ product }: ProductDetailProps) {
             </div>
 
             {/* Main Active Image Viewport */}
-            <div className="relative aspect-[3/4] flex-1 bg-neutral-50 border border-border overflow-hidden group">
+            <div className="relative aspect-[3/4] flex-1 bg-[#111111] border border-border overflow-hidden group cursor-crosshair">
               <Image
                 src={currentImage}
                 alt={product.name}
                 fill
                 priority
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 sizes="(max-width: 1024px) 100vw, 60vw"
               />
 
+              {/* OHA Feature: Cyberpunk Laser Scanner on Hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500 z-10">
+                <div className="w-full h-[2px] bg-[#FF5500] shadow-[0_0_20px_5px_rgba(255,85,0,0.8)] absolute top-0 left-0 animate-laser-scan" />
+                <div className="absolute inset-0 bg-[#FF5500]/10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay" />
+              </div>
+
               {/* Tag Overlays */}
-              <div className="absolute top-4 left-4 flex flex-col gap-2">
+              <div className="absolute top-4 left-4 flex flex-col gap-2 z-20">
                 {product.isLimited && (
-                  <span className="bg-[#FF5500] text-white text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1">
+                  <span className="bg-[#FF5500] text-white text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 shadow-[0_0_10px_rgba(255,85,0,0.5)]">
                     LIMITED DROP // ONLY {product.totalPieces} PIECES
                   </span>
                 )}
                 {product.collection && (
-                  <span className="bg-background/70 backdrop-blur-md border border-border text-foreground text-[10px] font-mono uppercase tracking-wider px-2.5 py-1">
+                  <span className="bg-black/70 backdrop-blur-md border border-white/10 text-white text-[10px] font-mono uppercase tracking-wider px-2.5 py-1">
                     {product.collection.title}
                   </span>
                 )}
               </div>
 
               {/* Angle Indicator */}
-              <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-md border border-border text-[10px] font-mono text-neutral-600 px-3 py-1">
+              <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-white/70 px-3 py-1 z-20">
                 AÇI: {product.images[selectedImageIndex]?.type || "FRONT"} [
                 {selectedImageIndex + 1} / {product.images.length}]
               </div>
@@ -239,10 +246,10 @@ export function ProductDetailView({ product }: ProductDetailProps) {
                       onClick={() => setSelectedSize(v.size)}
                       className={`py-3 text-xs font-mono font-bold transition-all relative ${
                         outOfStock
-                          ? "bg-neutral-100 text-neutral-400 border border-border cursor-not-allowed line-through"
+                          ? "bg-[#111111] text-neutral-600 border border-border cursor-not-allowed line-through"
                           : isSelected
-                          ? "bg-foreground text-background border border-foreground"
-                          : "bg-background text-neutral-600 border border-border hover:border-neutral-400"
+                          ? "bg-foreground text-background border border-foreground shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                          : "bg-[#181818] text-neutral-400 border border-border hover:border-neutral-500 hover:text-foreground"
                       }`}
                     >
                       {v.size}
@@ -290,7 +297,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               <button
                 onClick={handleBuyNow}
                 disabled={isOutOfStock}
-                className="w-full py-3.5 bg-neutral-100 hover:bg-neutral-200 border border-border text-foreground text-xs font-mono font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 disabled:opacity-40"
+                className="w-full py-4 bg-[#FF5500] hover:bg-[#FF5500]/80 text-white text-xs font-mono font-bold uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] flex items-center justify-center gap-2 disabled:opacity-40"
               >
                 HEMEN SATIN AL // EXPRESS CHECKOUT
               </button>
@@ -322,24 +329,26 @@ export function ProductDetailView({ product }: ProductDetailProps) {
             </div>
 
             {/* Accordion Editorial Sections */}
-            <div className="pt-6 border-t border-border divide-y divide-border font-mono text-xs">
+            <div className="pt-8 space-y-3 font-mono text-xs">
               {/* Description */}
-              <div>
+              <div className="bg-[#181818] border border-border hover:border-[#FF5500]/50 transition-all rounded-sm overflow-hidden group">
                 <button
                   onClick={() => toggleAccordion("description")}
-                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
+                  className="w-full p-5 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left group-hover:text-[#FF5500] transition-colors"
                 >
-                  <span>ÜRÜN HİKAYESİ VE TASARIM</span>
+                  <span className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#FF5500] rounded-full" /> ÜRÜN HİKAYESİ VE TASARIM
+                  </span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
-                      openAccordions.description ? "rotate-180" : ""
+                      openAccordions.description ? "rotate-180 text-[#FF5500]" : ""
                     }`}
                   />
                 </button>
                 {openAccordions.description && (
-                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
+                  <div className="px-5 pb-5 text-neutral-300 leading-relaxed uppercase space-y-2 border-t border-border/50 pt-4 bg-[#111111]">
                     <p>{product.description}</p>
-                    <p className="text-[11px] text-neutral-400">
+                    <p className="text-[11px] text-[#FF5500] font-bold mt-4 block">
                       KESİM: {product.fit} // RENK KODU: {product.colorHex}
                     </p>
                   </div>
@@ -347,20 +356,22 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               </div>
 
               {/* Material */}
-              <div>
+              <div className="bg-[#181818] border border-border hover:border-[#FF5500]/50 transition-all rounded-sm overflow-hidden group">
                 <button
                   onClick={() => toggleAccordion("material")}
-                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
+                  className="w-full p-5 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left group-hover:text-[#FF5500] transition-colors"
                 >
-                  <span>MATERYAL VE BAKIM DETAYLARI</span>
+                  <span className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#FF5500] rounded-full" /> MATERYAL VE BAKIM DETAYLARI
+                  </span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
-                      openAccordions.material ? "rotate-180" : ""
+                      openAccordions.material ? "rotate-180 text-[#FF5500]" : ""
                     }`}
                   />
                 </button>
                 {openAccordions.material && (
-                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
+                  <div className="px-5 pb-5 text-neutral-300 leading-relaxed uppercase space-y-2 border-t border-border/50 pt-4 bg-[#111111]">
                     <p>• {product.material}</p>
                     <p>• 30°C'de tersten benzer renklerle yıkayınız.</p>
                     <p>• Ağartıcı ve tamburlu kurutma uygulamayınız.</p>
@@ -370,24 +381,26 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               </div>
 
               {/* Shipping */}
-              <div>
+              <div className="bg-[#181818] border border-border hover:border-[#FF5500]/50 transition-all rounded-sm overflow-hidden group">
                 <button
                   onClick={() => toggleAccordion("shipping")}
-                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
+                  className="w-full p-5 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left group-hover:text-[#FF5500] transition-colors"
                 >
-                  <span>TESLİMAT VE SEVKİYAT SÜRECİ</span>
+                  <span className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#FF5500] rounded-full" /> TESLİMAT VE SEVKİYAT SÜRECİ
+                  </span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
-                      openAccordions.shipping ? "rotate-180" : ""
+                      openAccordions.shipping ? "rotate-180 text-[#FF5500]" : ""
                     }`}
                   />
                 </button>
                 {openAccordions.shipping && (
-                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
+                  <div className="px-5 pb-5 text-neutral-300 leading-relaxed uppercase space-y-2 border-t border-border/50 pt-4 bg-[#111111]">
                     <p>
                       Siparişleriniz İstanbul merkez stüdyomuzdan 24-48 saat içinde özel korumalı UTOPIA LDN arşiv kutusunda kargolanır.
                     </p>
-                    <p>
+                    <p className="text-[#FF5500]">
                       2.000 ₺ ve üzeri tüm siparişlerde Yurtiçi Kargo ile sigortalı gönderim ücretsizdir.
                     </p>
                   </div>
@@ -395,20 +408,22 @@ export function ProductDetailView({ product }: ProductDetailProps) {
               </div>
 
               {/* Returns */}
-              <div>
+              <div className="bg-[#181818] border border-border hover:border-[#FF5500]/50 transition-all rounded-sm overflow-hidden group">
                 <button
                   onClick={() => toggleAccordion("returns")}
-                  className="w-full py-4 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left"
+                  className="w-full p-5 flex justify-between items-center text-foreground font-bold uppercase tracking-wider text-left group-hover:text-[#FF5500] transition-colors"
                 >
-                  <span>İADE VE BEDEN DEĞİŞİMİ</span>
+                  <span className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#FF5500] rounded-full" /> İADE VE BEDEN DEĞİŞİMİ
+                  </span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
-                      openAccordions.returns ? "rotate-180" : ""
+                      openAccordions.returns ? "rotate-180 text-[#FF5500]" : ""
                     }`}
                   />
                 </button>
                 {openAccordions.returns && (
-                  <div className="pb-4 text-neutral-300 leading-relaxed uppercase space-y-2">
+                  <div className="px-5 pb-5 text-neutral-300 leading-relaxed uppercase space-y-2 border-t border-border/50 pt-4 bg-[#111111]">
                     <p>
                       Ürünü teslim aldığınız tarihten itibaren 14 gün içinde faturası ve etiketiyle birlikte ücretsiz geri gönderebilirsiniz.
                     </p>
@@ -531,7 +546,7 @@ export function ProductDetailView({ product }: ProductDetailProps) {
 
             <button
               onClick={() => setSizeGuideOpen(false)}
-              className="w-full py-3 bg-neutral-100 hover:bg-neutral-200 text-foreground text-xs font-mono uppercase tracking-widest transition-colors"
+              className="w-full py-3 bg-[#FF5500] hover:bg-[#FF5500]/80 text-white text-xs font-mono uppercase tracking-widest transition-all"
             >
               KAPAT
             </button>

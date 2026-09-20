@@ -87,7 +87,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[99990] bg-background/95 backdrop-blur-xl flex flex-col p-6 md:p-12 text-foreground"
+          className="fixed inset-0 z-[99990] bg-[#111111]/95 backdrop-blur-xl flex flex-col p-6 md:p-12 text-foreground"
         >
           {/* Top Bar */}
           <div className="flex justify-between items-center max-w-5xl mx-auto w-full border-b border-border pb-4">
@@ -113,10 +113,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="ARAMAK İSTEDİĞİNİZ PARÇAYI YAZIN..."
-                className="w-full bg-transparent pl-12 pr-4 py-4 text-2xl md:text-4xl font-light uppercase tracking-wider text-foreground placeholder-neutral-400 outline-none border-b border-border focus:border-[#e50914] transition-colors"
+                className="w-full bg-transparent pl-12 pr-4 py-4 text-2xl md:text-4xl font-light uppercase tracking-wider text-foreground placeholder-neutral-400 outline-none border-b border-border focus:border-[#FF5500] transition-colors"
               />
               {loading && (
-                <div className="absolute right-0 w-5 h-5 border-2 border-[#e50914] border-t-transparent rounded-full animate-spin" />
+                <div className="absolute right-0 w-5 h-5 border-2 border-[#FF5500] border-t-transparent rounded-full animate-spin" />
               )}
             </div>
           </div>
@@ -127,7 +127,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div className="space-y-8 py-4">
                 <div>
                   <h3 className="text-xs font-mono tracking-widest uppercase text-neutral-500 mb-4 flex items-center gap-2">
-                    <TrendingUp className="w-3.5 h-3.5 text-[#e50914]" />
+                    <TrendingUp className="w-3.5 h-3.5 text-[#FF5500]" />
                     POPÜLER ARAMALAR
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -135,7 +135,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       <button
                         key={item}
                         onClick={() => setQuery(item)}
-                        className="px-4 py-2 border border-border hover:border-foreground/30 bg-neutral-100 text-xs md:text-sm uppercase tracking-wider text-neutral-600 hover:text-foreground transition-all rounded-none"
+                        className="px-4 py-2 border border-border hover:border-[#FF5500]/50 bg-[#181818] text-xs md:text-sm uppercase tracking-wider text-neutral-400 hover:text-[#FF5500] transition-all rounded-none"
                       >
                         {item}
                       </button>
@@ -151,40 +151,40 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     <Link
                       href="/collections/drop-01-after-dark"
                       onClick={onClose}
-                      className="group p-5 border border-border bg-neutral-50 hover:border-foreground/30 transition-all block"
+                      className="group p-5 border border-border bg-[#181818] hover:border-[#FF5500]/50 transition-all block"
                     >
-                      <span className="text-[10px] font-mono text-[#e50914] block">
+                      <span className="text-[10px] font-mono text-[#FF5500] block">
                         DROP 01
                       </span>
-                      <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1">
+                      <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1 group-hover:text-white">
                         AFTER DARK
-                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#FF5500]" />
                       </span>
                     </Link>
                     <Link
                       href="/collections/drop-02-no-signal"
                       onClick={onClose}
-                      className="group p-5 border border-border bg-neutral-50 hover:border-foreground/30 transition-all block"
+                      className="group p-5 border border-border bg-[#181818] hover:border-[#FF5500]/50 transition-all block"
                     >
-                      <span className="text-[10px] font-mono text-neutral-500 block">
+                      <span className="text-[10px] font-mono text-neutral-500 block group-hover:text-[#FF5500]">
                         DROP 02
                       </span>
-                      <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1">
+                      <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1 group-hover:text-white">
                         NO SIGNAL
-                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#FF5500]" />
                       </span>
                     </Link>
                     <Link
                       href="/shop?category=LIMITED"
                       onClick={onClose}
-                      className="group p-5 border border-border bg-neutral-50 hover:border-foreground/30 transition-all block"
+                      className="group p-5 border border-border bg-[#181818] hover:border-[#FF5500]/50 transition-all block"
                     >
-                      <span className="text-[10px] font-mono text-neutral-500 block">
+                      <span className="text-[10px] font-mono text-neutral-500 block group-hover:text-[#FF5500]">
                         ARCHIVE
                       </span>
-                      <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1">
+                      <span className="text-base font-bold tracking-tight uppercase flex items-center justify-between mt-1 group-hover:text-white">
                         LIMITED PIECES
-                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#FF5500]" />
                       </span>
                     </Link>
                   </div>
@@ -197,23 +197,23 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     key={product.id}
                     href={`/product/${product.slug}`}
                     onClick={onClose}
-                    className="group border border-border bg-neutral-50 hover:border-foreground/30 transition-all p-3 block"
+                    className="group border border-border bg-[#181818] hover:border-[#FF5500]/50 transition-all p-3 block"
                   >
-                    <div className="relative aspect-[3/4] bg-neutral-200 overflow-hidden mb-3">
+                    <div className="relative aspect-[3/4] bg-neutral-900 overflow-hidden mb-3">
                       <Image
                         src={product.imageUrl || "/images/products/shadow_hoodie_front.jpg"}
                         alt={product.name}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                       {product.isLimited && (
-                        <span className="absolute top-2 left-2 bg-[#e50914] text-white text-[9px] font-mono uppercase px-2 py-0.5">
+                        <span className="absolute top-2 left-2 bg-[#FF5500] text-white text-[9px] font-mono uppercase px-2 py-0.5 shadow-[0_0_10px_rgba(255,85,0,0.5)]">
                           LIMITED
                         </span>
                       )}
                     </div>
-                    <div className="flex justify-between items-start text-xs font-mono text-neutral-500">
+                    <div className="flex justify-between items-start text-xs font-mono text-neutral-400">
                       <span>{product.category}</span>
                       <span className="text-foreground font-bold">
                         {product.price.toLocaleString("tr-TR")} ₺
