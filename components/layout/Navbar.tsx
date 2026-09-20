@@ -53,7 +53,7 @@ const MEGA_MENU_DATA: Record<string, MegaMenuSection[]> = {
           href: "/shop?category=LIMITED",
           description: "Sınırlı Üretim Parçaları",
           badge: "CANLI",
-          badgeColor: "bg-[#e50914]",
+          badgeColor: "bg-[#FF5500]",
         },
         { title: "YENİ GELENLER", href: "/shop?sort=newest", description: "Son Eklenenler" },
         { title: "EN ÇOK SATANLAR", href: "/shop?sort=popular", description: "Topluluk Favorileri" },
@@ -70,7 +70,7 @@ const MEGA_MENU_DATA: Record<string, MegaMenuSection[]> = {
           href: "/collections/drop-01-after-dark",
           description: "Karanlık sokak silüetleri",
           badge: "LIVE",
-          badgeColor: "bg-[#e50914]",
+          badgeColor: "bg-[#FF5500]",
         },
         {
           title: "DROP 02 — NO SIGNAL",
@@ -213,7 +213,7 @@ export function Navbar() {
                   {pathname === link.href && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#e50914]"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#FF5500]"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -229,7 +229,7 @@ export function Navbar() {
               className="text-lg md:text-2xl font-black tracking-[-0.08em] uppercase text-foreground hover:opacity-85 transition-opacity inline-flex items-center gap-1.5"
             >
               <span>UTOPIA</span>
-              <span className="text-[#e50914] text-xs font-mono font-bold tracking-widest px-1.5 py-0.5 border border-[#e50914]/40 bg-[#e50914]/10">
+              <span className="text-[#FF5500] text-xs font-mono font-bold tracking-widest px-1.5 py-0.5 border border-[#FF5500]/40 bg-[#FF5500]/10">
                 LDN
               </span>
             </Link>
@@ -254,7 +254,7 @@ export function Navbar() {
             >
               <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#e50914] text-[9px] font-mono text-white flex items-center justify-center font-bold">
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#FF5500] text-[9px] font-mono text-white flex items-center justify-center font-bold">
                   {wishlistCount}
                 </span>
               )}
@@ -280,7 +280,7 @@ export function Navbar() {
                 [{itemCount}]
               </span>
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#e50914] animate-pulse-red" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#FF5500] animate-pulse-orange" />
               )}
             </button>
           </div>
@@ -306,7 +306,7 @@ export function Navbar() {
                   <div className="col-span-8 grid grid-cols-2 gap-8">
                     {MEGA_MENU_DATA[activeMegaMenu].map((section) => (
                       <div key={section.title}>
-                        <h3 className="text-[10px] font-mono tracking-[0.3em] text-[#e50914] uppercase mb-4">
+                        <h3 className="text-[10px] font-mono tracking-[0.3em] text-[#FF5500] uppercase mb-4">
                           {section.title}
                         </h3>
                         <div className="space-y-1">
@@ -318,7 +318,7 @@ export function Navbar() {
                             >
                               <div>
                                 <div className="flex items-center gap-2">
-                                  <span className="text-sm font-bold text-white group-hover:text-[#e50914] transition-colors uppercase tracking-wide">
+                                  <span className="text-sm font-bold text-white group-hover:text-[#FF5500] transition-colors uppercase tracking-wide">
                                     {item.title}
                                   </span>
                                   {item.badge && (
@@ -355,7 +355,7 @@ export function Navbar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
-                        <span className="text-[9px] font-mono text-[#e50914] tracking-widest flex items-center gap-1 mb-1">
+                        <span className="text-[9px] font-mono text-[#FF5500] tracking-widest flex items-center gap-1 mb-1">
                           <Zap className="w-3 h-3" />
                           AKTİF DROP
                         </span>
@@ -364,7 +364,7 @@ export function Navbar() {
                         </h4>
                         <Link
                           href="/collections/drop-01-after-dark"
-                          className="mt-2 inline-flex items-center gap-1 text-xs font-mono text-white hover:text-[#e50914] transition-colors"
+                          className="mt-2 inline-flex items-center gap-1 text-xs font-mono text-white hover:text-[#FF5500] transition-colors"
                         >
                           KEŞFET <ArrowRight className="w-3 h-3" />
                         </Link>
@@ -407,7 +407,7 @@ export function Navbar() {
                       href={link.href}
                       className="flex items-center justify-between py-4 border-b border-neutral-900 group"
                     >
-                      <span className="text-2xl font-black tracking-tight uppercase text-white group-hover:text-[#e50914] transition-colors">
+                      <span className="text-2xl font-black tracking-tight uppercase text-white group-hover:text-[#FF5500] transition-colors">
                         {link.label}
                       </span>
                       <ChevronRight className="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors" />
@@ -423,7 +423,7 @@ export function Navbar() {
                 transition={{ duration: 0.3, delay: 0.2 }}
                 className="mt-8 space-y-3"
               >
-                <span className="text-[10px] font-mono text-[#e50914] tracking-[0.3em] uppercase block mb-3">
+                <span className="text-[10px] font-mono text-[#FF5500] tracking-[0.3em] uppercase block mb-3">
                   HIZLI ERİŞİM
                 </span>
 
@@ -472,7 +472,7 @@ export function Navbar() {
               >
                 <Link
                   href="/admin"
-                  className="text-xs font-mono tracking-widest uppercase text-[#e50914] hover:underline"
+                  className="text-xs font-mono tracking-widest uppercase text-[#FF5500] hover:underline"
                 >
                   CREATIVE DIRECTOR PANELİ
                 </Link>

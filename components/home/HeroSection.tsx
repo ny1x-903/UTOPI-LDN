@@ -22,7 +22,7 @@ function GlitchText({ text, className }: { text: string; className?: string }) {
       {isGlitching && (
         <>
           <span
-            className="absolute inset-0 text-[#e50914] z-20"
+            className="absolute inset-0 text-[#FF5500] z-20"
             style={{
               clipPath: "inset(20% 0 60% 0)",
               transform: "translate(-2px, 1px)",
@@ -83,7 +83,7 @@ export function HeroSection() {
       />
       <motion.div
         className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[0]"
-        style={{ background: "radial-gradient(circle, rgba(229,9,20,0.10) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(255,85,0,0.10) 0%, transparent 70%)" }}
         animate={{
           x: [0, -40, 30, 0],
           y: [0, 30, -40, 0],
@@ -102,7 +102,7 @@ export function HeroSection() {
           muted
           playsInline
           poster="/images/hero_campaign.jpg"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.05]"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.15]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
